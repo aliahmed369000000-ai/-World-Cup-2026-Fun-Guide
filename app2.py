@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 import json
 import requests
+import os
+
 
 app = Flask(__name__)
 
@@ -41,25 +43,32 @@ def city(name):
     city_hotels = hotels.get(name, [])
 
     # API KEY
+        # API KEY من Environment Variables
     api_key = os.environ.get("OPENWEATHER_API_KEY")
     
-
-    # طلب الطقس
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid={api_key}&units=metric"
-
-    response = requests.get(url)
-
     weather = None
+    
+    if api_key:
+        # طلب الطقس
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid={api_key}&units=metric"
+        
+        try:
+            response = requests.get(url, timeout=5)
+            
+            if response.status_code == 200:
+                data = response.json()
+                weather = {
+                    "temp": data["main"]["temp"],
+                    "description": data["weather"][0]["description"],
+                    "wind": data["wind"]["speed"],
+                }
+        except Exception:
+            weather = None
+    
+    return render_template(
+        "city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels
+    )
 
-    if response.status_code == 200:
-
-        data = response.json()
-
-        weather = {
-            "temp": data["main"]["temp"],
-            "description": data["weather"][0]["description"],
-            "wind": data["wind"]["speed"],
-        }
 
     return render_template(
         "city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels
