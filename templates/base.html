@@ -1,58 +1,59 @@
-<!DOCTYPE html>
+
+import os
+
+output_dir = '/mnt/agents/output/'
+os.makedirs(output_dir, exist_ok=True)
+
+# ============================================
+# 1. base.html
+# ============================================
+base_html = '''<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Cup 2026 Fan Guide</title>
+    <title>{% block title %}World Cup 2026 Fan Guide{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="light-mode">
-    <nav>
-        <div class="logo">WC2026 ⚽</div>
-        <div class="menu">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-            <button id="dark-mode-toggle">🌓</button>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">⚽</span>
+                <span class="logo-text">WC2026</span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                <a href="/matches" class="nav-link {% if request.path == '/matches' %}active{% endif %}">Matches</a>
+                <a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %}">About</a>
+                <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+                <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌓</span>
+                </button>
+            </div>
         </div>
     </nav>
-    <main>{% block content %}{% endblock %}</main>
-    <footer>
-        <p>&copy; 2026 World Cup Fan Guide | <a href="/privacy">Privacy</a></p>
-    </footer>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include "footer.html" %}
+
     <script src="{{ url_for('static', filename='app.js') }}"></script>
-
-    <footer class="footer">
-
-        <h3>World Cup 2026 Fan Guide</h3>
-
-        <p>
-            Hotels, stadiums, weather,
-            transportation and travel tips
-            for FIFA World Cup 2026 fans.
-        </p>
-
-        <div class="footer-links">
-
-            <a href="/">Home</a>
-
-            <a href="/about">About</a>
-
-            <a href="/contact">Contact</a>
-
-            <a href="/privacy">Privacy</a>
-
-        </div>
-
-        <p>
-            © 2026 World Cup 2026 Fan Guide
-        </p>
-
-    </footer>
 </body>
+</html>'''
 
-</html>
+with open(os.path.join(output_dir, 'base.html'), 'w', encoding='utf-8') as f:
+    f.write(base_html)
+
+print("✅ base.html created")
