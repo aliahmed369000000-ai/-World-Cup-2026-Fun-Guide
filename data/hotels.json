@@ -1,0 +1,129 @@
+{
+    "New York": [
+        {
+            "name": "Hyatt Regency Jersey City",
+            "price": "$280",
+            "link": "https://example.com"
+        },
+        {
+            "name": "New York Marriott Downtown",
+            "price": "$320",
+            "link": "https://example.com"
+        }
+    ],
+    "Mexico City": [
+        {
+            "name": "Hilton Mexico City",
+            "price": "$220",
+            "link": "https://example.com"
+        },
+        {
+            "name": "Barcelo Mexico Reforma",
+            "price": "$180",
+            "link": "https://example.com"
+        }
+    ],
+    "Monterrey": [
+        {
+            "name": "Safi Royal Luxury",
+            "price": "$140",
+            "link": "https://example.com"
+        }
+    ],
+    "Guadalajara": [
+        {
+            "name": "Hotel Morales",
+            "price": "$120",
+            "link": "https://example.com"
+        }
+    ],
+    "Toronto": [
+        {
+            "name": "Fairmont Royal York",
+            "price": "$250",
+            "link": "https://example.com"
+        }
+    ],
+    "Vancouver": [
+        {
+            "name": "Pan Pacific Vancouver",
+            "price": "$240",
+            "link": "https://example.com"
+        }
+    ],
+    "Los Angeles": [
+        {
+            "name": "Hollywood Hotel",
+            "price": "$190",
+            "link": "https://example.com"
+        },
+        {
+            "name": "Beverly Hills Marriott",
+            "price": "$260",
+            "link": "https://example.com"
+        }
+    ],
+    "Dallas": [
+        {
+            "name": "Hyatt Regency Dallas",
+            "price": "$170",
+            "link": "https://example.com"
+        }
+    ],
+    "San Francisco Bay Area": [
+        {
+            "name": "Santa Clara Marriott",
+            "price": "$230",
+            "link": "https://example.com"
+        }
+    ],
+    "Miami": [
+        {
+            "name": "Fontainebleau Miami",
+            "price": "$300",
+            "link": "https://example.com"
+        }
+    ],
+    "Atlanta": [
+        {
+            "name": "Atlanta Marriott Marquis",
+            "price": "$180",
+            "link": "https://example.com"
+        }
+    ],
+    "Seattle": [
+        {
+            "name": "Grand Hyatt Seattle",
+            "price": "$220",
+            "link": "https://example.com"
+        }
+    ],
+    "Boston": [
+        {
+            "name": "The Bostonian Hotel",
+            "price": "$240",
+            "link": "https://example.com"
+        }
+    ],
+    "Philadelphia": [
+        {
+            "name": "Loews Philadelphia Hotel",
+            "price": "$210",
+            "link": "https://example.com"
+        }
+    ],
+    "Houston": [
+        {
+            "name": "Marriott Marquis Houston",
+            "price": "$190",
+            "link": "https://example.com"
+        }
+    ],
+    "Kansas City": [
+        {
+            "name": "Hotel Kansas City",
+            "price": "$160",
+            "link": "https://example.com"
+        }
+    ]
+}
