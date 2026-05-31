@@ -65,6 +65,37 @@
         });
     </script>
 </body>
+</html>                <div class="match-info" style="min-width: 200px;">
+                    <div style="font-size: 14px; opacity: 0.8; margin-bottom: 8px;">📅 {{ match.date }}</div>
+                    <div class="match-time">{{ match.time }}</div>
+                    <div style="font-size: 14px; margin-top: 8px;">🏟 {{ match.stadium }}</div>
+                    <div style="font-size: 14px; opacity: 0.8;">📍 {{ match.city }}</div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="remind-btn">🔔 Remind Me</button>
+                    <a href="/city/{{ match.city }}" class="button" style="padding: 10px 20px; font-size: 14px; text-align: center;">City Guide</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Ad -->
+        <div class="ad-box" style="margin-top: 40px;">Advertisement Space</div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <script>
+        document.querySelectorAll(".remind-btn").forEach(btn => {
+            btn.addEventListener("click", async function () {
+                const permission = await Notification.requestPermission();
+                if (permission === "granted") {
+                    new Notification("⚽ Match Reminder", { body: "Your World Cup match starts soon!" });
+                }
+            });
+        });
+    </script>
+</body>
 </html>            <p>
                 📍 {{ match.city }}
             </p>
