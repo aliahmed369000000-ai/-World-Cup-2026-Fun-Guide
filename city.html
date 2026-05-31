@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        {{ city_name }} - World Cup 2026 Fan Guide
+    </title>
+
+    <meta name="description" content="Hotels, weather, stadium and travel information for {{ city_name }}.">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<h2>
+    🏨 Best Hotels
+</h2>
+
+<div class="matches">
+
+    {% for hotel in hotels %}
+
+    <div class="match-card">
+
+        <h3>
+            {{ hotel.name }}
+        </h3>
+
+        <p>
+            💲 {{ hotel.price }}
+        </p>
+
+        <a class="button" href="{{ hotel.link }}" target="_blank">
+            Book Hotel
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+<h2>
+    📶 Travel eSIM
+</h2>
+
+<div class="match-card">
+
+    <h3>
+        Stay Connected Anywhere
+    </h3>
+
+    <p>
+        Get instant mobile internet
+        for your World Cup trip.
+    </p>
+
+    <a class="button" href="https://airalo.com" target="_blank">
+        Buy eSIM
+    </a>
+
+</div>
+<h2>
+    🔒 Travel VPN
+</h2>
+
+<div class="match-card">
+
+    <h3>
+        Protect Your Internet
+    </h3>
+
+    <p>
+        Use a VPN for safer browsing
+        in airports, hotels and cafes.
+    </p>
+
+    <a class="button" href="https://surfshark.com" target="_blank">
+        Get VPN
+    </a>
+
+</div>
+
+<body>
+
+    <div class="container">
+        <div class="hero">
+
+            <img src="{{ city.image }}" class="city-banner">
+
+            <h1>
+                🌎 {{ city_name }}
+            </h1>
+
+            <button class="button" id="favoriteBtn">
+                ❤️ Save City
+            </button>
+
+            <p class="country-badge">
+                {{ city.country }}
+            </p>
+
+        </div>
+
+        <a class="back" href="/">
+            ← Back
+        </a>
+
+        <div class="card">
+
+            <h1>{{ city_name }}</h1>
+
+            {% if weather %}
+
+            <div class="info-card">
+
+                <h2>
+                    ☁ Current Weather
+                </h2>
+
+                <p>
+                    🌡 {{ weather.temp }}°C
+                </p>
+
+                <p>
+                    {{ weather.description }}
+                </p>
+
+                <p>
+                    💨 Wind:
+                    {{ weather.wind }} m/s
+                </p>
+
+            </div>
+
+            {% endif %}
+
+            <div class="info-card">
+
+                <h2>
+                    🏟 Stadium
+                </h2>
+
+                <p>
+                    {{ city.stadium }}
+                </p>
+
+                <a class="button" href="https://www.google.com/maps/search/{{ city.stadium }}" target="_blank">
+                    🗺 Open In Maps
+                </a>
+
+            </div>
+
+            <div class="info-card">
+
+                <h2>
+                    🚇 Transport
+                </h2>
+
+                <p>
+                    {{ city.transport }}
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h2>
+                    🛡 Safety Tips
+                </h2>
+
+                <p>
+                    {{ city.safety }}
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h2>
+                    🍔 Local Food
+                </h2>
+
+                <p>
+                    {{ city.food }}
+                </p>
+
+            </div>
+            <h2>⚽ Match Day Plan</h2>
+
+            <h3>🕒 When To Leave</h3>
+
+            <p>{{ city.leave_time }}</p>
+
+            <h3>🚕 Estimated Travel Time</h3>
+            <p>{{ city.travel_time }}</p>
+
+            <h3>💡 Best Tip</h3>
+            <p>{{ city.tip }}</p>
+
+            <hr style="margin:30px 0;">
+
+            <h2>🏨 Recommended Hotels</h2>
+
+            {% for hotel in city.hotels %}
+
+            <div class="hotel-card">
+
+                <h3>🏨 {{ hotel.name }}</h3>
+
+                <p>
+                    Average Price:
+                    <strong>{{ hotel.price }}</strong>
+                </p>
+
+                <a class="button" href="{{ hotel.link }}" target="_blank" rel="noopener">
+                    Book Hotel
+                </a>
+
+            </div>
+            <p class="affiliate-note">
+
+                Hotel booking links will be updated
+                with official affiliate partners soon.
+
+            </p>
+
+            {% endfor %}
+            <hr style="margin:30px 0;">
+
+            <h2>🕌 Halal Food Nearby</h2>
+
+            {% for food in city.halal_food %}
+
+            <div class="hotel-card">
+
+                <h3>{{ food.name }}</h3>
+
+                <p>🍽 {{ food.type }}</p>
+
+                <p>📍 {{ food.distance }}</p>
+
+            </div>
+
+            {% endfor %}
+
+
+            <script>
+
+                window.addEventListener(
+
+                    "DOMContentLoaded",
+
+                    function () {
+
+                        const favoriteBtn =
+
+                            document.getElementById(
+                                "favoriteBtn"
+                            );
+
+                        if (favoriteBtn) {
+
+                            favoriteBtn.addEventListener(
+
+                                "click",
+
+                                function () {
+
+                                    // قراءة المفضلة القديمة
+                                    let favorites =
+
+                                        JSON.parse(
+
+                                            localStorage.getItem(
+                                                "favoriteCities"
+                                            )
+
+                                        ) || [];
+
+                                    // المدينة الحالية
+                                    let cityName =
+                                        "{{ city_name }}";
+
+                                    // إذا ليست موجودة
+                                    if (
+                                        !favorites.includes(cityName)
+                                    ) {
+
+                                        favorites.push(cityName);
+
+                                        // حفظ
+                                        localStorage.setItem(
+
+                                            "favoriteCities",
+
+                                            JSON.stringify(
+                                                favorites
+                                            )
+                                        );
+
+                                        alert(
+
+                                            cityName +
+
+                                            " added to favorites ⭐"
+                                        );
+
+                                    } else {
+
+                                        alert(
+                                            "Already in favorites"
+                                        );
+                                    }
+
+                                }
+
+                            );
+
+                        }
+
+                    }
+
+                );
+
+            </script>
+            {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Matches</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',
+filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>⚽ Upcoming Matches</h1>
+
+        {% for match in matches %}
+
+        <div class="match-card">
+
+            <h3>
+                {{ match.team1 }}
+                vs
+                {{ match.team2 }}
+            </h3>
+
+            <p>
+                📅 {{ match.date }}
+            </p>
+
+            <p>
+                🏟 {{ match.stadium }}
+            </p>
+
+            <p>
+                📍 {{ match.city }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>
