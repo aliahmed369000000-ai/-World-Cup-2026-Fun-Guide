@@ -1,0 +1,130 @@
+{
+    "New York": {
+        "country": "USA",
+        "stadium": "MetLife Stadium",
+        "transport": "Subway, NJ Transit and buses",
+        "safety": "Stay aware in crowded tourist areas",
+        "food": "Pizza, bagels and international cuisine",
+        "image": "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2"
+    },
+    "Mexico City": {
+        "country": "Mexico",
+        "stadium": "Estadio Azteca",
+        "transport": "Metro and buses",
+        "safety": "Stay in tourist areas",
+        "food": "Tacos and local Mexican food",
+        "image": "https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396"
+    },
+    "Monterrey": {
+        "country": "Mexico",
+        "stadium": "Estadio BBVA",
+        "transport": "Metro and taxis",
+        "safety": "Use official transport",
+        "food": "Grilled meat and tacos",
+        "image": "https://images.unsplash.com/photo-1596495578065-6e0763fa1178"
+    },
+    "Guadalajara": {
+        "country": "Mexico",
+        "stadium": "Estadio Akron",
+        "transport": "Buses and Uber",
+        "safety": "Avoid isolated areas at night",
+        "food": "Birria and tortas",
+        "image": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a"
+    },
+    "Toronto": {
+        "country": "Canada",
+        "stadium": "BMO Field",
+        "transport": "Subway and streetcars",
+        "safety": "Very safe city",
+        "food": "International food",
+        "image": "https://images.unsplash.com/photo-1517935706615-2717063c2225"
+    },
+    "Vancouver": {
+        "country": "Canada",
+        "stadium": "BC Place",
+        "transport": "SkyTrain and buses",
+        "safety": "Safe downtown areas",
+        "food": "Seafood and Asian cuisine",
+        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+    },
+    "Los Angeles": {
+        "country": "USA",
+        "stadium": "SoFi Stadium",
+        "transport": "Metro and Uber",
+        "safety": "Traffic is heavy",
+        "food": "Burgers and tacos",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Los_Angeles%2C_Winter_2016.jpg"
+    },
+    "Dallas": {
+        "country": "USA",
+        "stadium": "AT&T Stadium",
+        "transport": "Cars and Uber",
+        "safety": "Stay in downtown areas",
+        "food": "Texas BBQ",
+        "image": "https://images.unsplash.com/photo-1514565131-fce0801e5785"
+    },
+    "San Francisco Bay Area": {
+        "country": "USA",
+        "stadium": "Levi's Stadium",
+        "transport": "BART and trains",
+        "safety": "Watch belongings in crowded places",
+        "food": "Seafood and tech cafes",
+        "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29"
+    },
+    "Miami": {
+        "country": "USA",
+        "stadium": "Hard Rock Stadium",
+        "transport": "Uber and trains",
+        "safety": "Stay alert at beaches at night",
+        "food": "Cuban food",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+    },
+    "Atlanta": {
+        "country": "USA",
+        "stadium": "Mercedes-Benz Stadium",
+        "transport": "MARTA metro",
+        "safety": "Busy tourist city",
+        "food": "Southern BBQ",
+        "image": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df"
+    },
+    "Seattle": {
+        "country": "USA",
+        "stadium": "Lumen Field",
+        "transport": "Light rail and buses",
+        "safety": "Rainy weather common",
+        "food": "Coffee and seafood",
+        "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    },
+    "Boston": {
+        "country": "USA",
+        "stadium": "Gillette Stadium",
+        "transport": "Subway and trains",
+        "safety": "Historic safe city",
+        "food": "Seafood and lobster",
+        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000"
+    },
+    "Philadelphia": {
+        "country": "USA",
+        "stadium": "Lincoln Financial Field",
+        "transport": "SEPTA transit",
+        "safety": "Stay in tourist areas",
+        "food": "Philly cheesesteak",
+        "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+    },
+    "Houston": {
+        "country": "USA",
+        "stadium": "NRG Stadium",
+        "transport": "Cars and Uber",
+        "safety": "Hot weather",
+        "food": "Tex-Mex cuisine",
+        "image": "https://images.unsplash.com/photo-1494526585095-c41746248156"
+    },
+    "Kansas City": {
+        "country": "USA",
+        "stadium": "Arrowhead Stadium",
+        "transport": "Cars and buses",
+        "safety": "Friendly sports city",
+        "food": "Kansas BBQ",
+        "image": "https://images.unsplash.com/photo-1470770903676-69b98201ea1c"
+    }
+}
