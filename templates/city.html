@@ -183,6 +183,155 @@
         }
     </script>
 </body>
+</html>            <div class="weather-info">
+                <h3>{{ weather.temp }}°C</h3>
+                <p>{{ weather.description }} • 💨 Wind: {{ weather.wind }} m/s</p>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Info Cards Grid -->
+        <h2 class="section-title">📋 City Information</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px;">
+            <div class="info-card">
+                <h3>🏟 Stadium</h3>
+                <p>{{ city.stadium }}</p>
+            </div>
+            <div class="info-card">
+                <h3>🚇 Transport</h3>
+                <p>{{ city.transport }}</p>
+            </div>
+            <div class="info-card">
+                <h3>🛡 Safety Tips</h3>
+                <p>{{ city.safety }}</p>
+            </div>
+            <div class="info-card">
+                <h3>🍔 Local Food</h3>
+                <p>{{ city.food }}</p>
+            </div>
+        </div>
+
+        <!-- Match Day Plan -->
+        <h2 class="section-title">⚽ Match Day Plan</h2>
+
+        <div class="info-card" style="margin-bottom: 30px;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🕒</div>
+                    <h4>When To Leave</h4>
+                    <p>{{ city.leave_time }}</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🚕</div>
+                    <h4>Travel Time</h4>
+                    <p>{{ city.travel_time }}</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💡</div>
+                    <h4>Best Tip</h4>
+                    <p>{{ city.tip }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotels -->
+        <h2 class="section-title">🏨 Recommended Hotels</h2>
+
+        <div class="hotels-grid">
+            {% for hotel in city.hotels %}
+            <div class="hotel-card">
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 120px; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px;">🏨</div>
+                <div class="hotel-info">
+                    <h4>{{ hotel.name }}</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 10px;">Average Price</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="hotel-price">{{ hotel.price }}</span>
+                        <a href="{{ hotel.link }}" target="_blank" rel="noopener" class="button" style="padding: 8px 16px; font-size: 13px;">Book</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <p class="affiliate-note" style="text-align: center; color: #999; font-size: 13px; margin-top: 20px;">
+            Hotel booking links will be updated with official affiliate partners soon.
+        </p>
+
+        <!-- Halal Food -->
+        <h2 class="section-title">🕌 Halal Food Nearby</h2>
+
+        <div class="hotels-grid">
+            {% for food in city.halal_food %}
+            <div class="hotel-card">
+                <div style="background: linear-gradient(135deg, #11998e, #38ef7d); height: 100px; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px;">🍽️</div>
+                <div class="hotel-info">
+                    <h4>{{ food.name }}</h4>
+                    <p style="color: #666; font-size: 14px;">{{ food.type }}</p>
+                    <p style="color: #999; font-size: 13px;">📍 {{ food.distance }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Travel Essentials -->
+        <h2 class="section-title">📱 Travel Essentials</h2>
+
+        <div class="experiences-grid">
+            <div class="experience-card">
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 140px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📱</div>
+                <div class="experience-content">
+                    <h3>Travel eSIM</h3>
+                    <p>Stay connected with instant mobile internet for your trip.</p>
+                    <a href="https://airalo.com" target="_blank" class="button" style="width: 100%; text-align: center; margin-top: 10px;">Buy eSIM</a>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div style="background: linear-gradient(135deg, #f093fb, #f5576c); height: 140px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">🔒</div>
+                <div class="experience-content">
+                    <h3>Travel VPN</h3>
+                    <p>Secure your connection while traveling in airports and hotels.</p>
+                    <a href="https://surfshark.com" target="_blank" class="button" style="width: 100%; text-align: center; margin-top: 10px;">Get VPN</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad -->
+        <div class="ad-box" style="margin: 40px 0;">Advertisement Space</div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <!-- Favorites Script -->
+    <script>
+        const favoriteBtn = document.getElementById("favoriteBtn");
+
+        if (favoriteBtn) {
+            favoriteBtn.addEventListener("click", function () {
+                let favorites = JSON.parse(localStorage.getItem("favoriteCities")) || [];
+                let cityName = "{{ city_name }}";
+
+                if (!favorites.includes(cityName)) {
+                    favorites.push(cityName);
+                    localStorage.setItem("favoriteCities", JSON.stringify(favorites));
+                    alert(cityName + " added to favorites ⭐");
+                    favoriteBtn.innerText = "⭐ Saved";
+                    favoriteBtn.style.background = "#10b981";
+                } else {
+                    alert("Already in favorites");
+                }
+            });
+        }
+
+        // Check if already saved
+        let favorites = JSON.parse(localStorage.getItem("favoriteCities")) || [];
+        if (favorites.includes("{{ city_name }}")) {
+            favoriteBtn.innerText = "⭐ Saved";
+            favoriteBtn.style.background = "#10b981";
+        }
+    </script>
+</body>
 </html>
     </div>
 
