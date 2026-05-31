@@ -41,7 +41,8 @@ def city(name):
     city_hotels = hotels.get(name, [])
 
     # API KEY
-    api_key = "os.environ.get("OPENWEATHER_API_KEY") "
+    api_key = os.environ.get("OPENWEATHER_API_KEY")
+    
 
     # طلب الطقس
     url = f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid={api_key}&units=metric"
