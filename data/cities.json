@@ -37,40 +37,6 @@
             {"name": "Al Jazeera", "type": "Middle Eastern", "distance": "15 min drive"}
         ]
     },
-    "Monterrey": {
-        "country": "Mexico",
-        "stadium": "Estadio BBVA",
-        "transport": "Metro and taxis",
-        "safety": "Use official transport",
-        "food": "Grilled meat and tacos",
-        "image": "https://images.unsplash.com/photo-1596495578065-6e0763fa1178",
-        "leave_time": "3 hours before match",
-        "travel_time": "30 min from downtown",
-        "tip": "Metro station 'Estadio BBVA'",
-        "hotels": [
-            {"name": "Safi Royal Luxury", "price": "$140", "link": "https://www.safihotels.com"}
-        ],
-        "halal_food": [
-            {"name": "Shawarma Express", "type": "Shawarma", "distance": "5 min drive"}
-        ]
-    },
-    "Guadalajara": {
-        "country": "Mexico",
-        "stadium": "Estadio Akron",
-        "transport": "Buses and Uber",
-        "safety": "Avoid isolated areas at night",
-        "food": "Birria and tortas",
-        "image": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a",
-        "leave_time": "3.5 hours before match",
-        "travel_time": "40 min from Centro",
-        "tip": "Uber is safest at night",
-        "hotels": [
-            {"name": "Hotel Morales", "price": "$120", "link": "https://www.hotelmorales.com"}
-        ],
-        "halal_food": [
-            {"name": "Al Medina", "type": "Halal Mexican", "distance": "10 min taxi"}
-        ]
-    },
     "Toronto": {
         "country": "Canada",
         "stadium": "BMO Field",
@@ -138,23 +104,6 @@
         ],
         "halal_food": [
             {"name": "Afrah Restaurant", "type": "Mediterranean", "distance": "15 min drive"}
-        ]
-    },
-    "San Francisco Bay Area": {
-        "country": "USA",
-        "stadium": "Levi's Stadium",
-        "transport": "BART and trains",
-        "safety": "Watch belongings in crowded places",
-        "food": "Seafood and tech cafes",
-        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
-        "leave_time": "3 hours before match",
-        "travel_time": "45 min from SF",
-        "tip": "VTA light rail from San Jose",
-        "hotels": [
-            {"name": "Santa Clara Marriott", "price": "$230", "link": "https://www.marriott.com"}
-        ],
-        "halal_food": [
-            {"name": "Tarboush", "type": "Lebanese", "distance": "10 min drive"}
         ]
     },
     "Miami": {
@@ -274,6 +223,23 @@
         ],
         "halal_food": [
             {"name": "Habashi House", "type": "Mediterranean", "distance": "12 min drive"}
+        ]
+    },
+    "San Francisco Bay Area": {
+        "country": "USA",
+        "stadium": "Levi's Stadium",
+        "transport": "BART and trains",
+        "safety": "Watch belongings in crowded places",
+        "food": "Seafood and tech cafes",
+        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+        "leave_time": "3 hours before match",
+        "travel_time": "45 min from SF",
+        "tip": "VTA light rail from San Jose",
+        "hotels": [
+            {"name": "Santa Clara Marriott", "price": "$230", "link": "https://www.marriott.com"}
+        ],
+        "halal_food": [
+            {"name": "Tarboush", "type": "Lebanese", "distance": "10 min drive"}
         ]
     }
 }
