@@ -30,30 +30,44 @@ def home():
 
 @app.route("/city/<name>")
 def city(name):
-    from urllib.parse import unquote  # تأكد من وجودها في الأعلى
-    import re                        # تأكد من وجودها في الأعلى
-
-    city_name = unquote(name).strip()
-    city_name = re.sub(r'\s+', ' ', city_name)
-
+    # Flask يفك ترميز %20ائياً، نستخدم name مباشرة
+    city_name = name.strip()  # فقط إزالة المسافات من البداية والنهاية
+    
+    # البحث المباشر
     city_data = cities.get(city_name)
-
+    
+    # إذا لم نجد، نحاول البحث غير حساس لحالة الأحرف
     if city_data is None:
-        city_lower = city_name.lower()
         for key in cities:
-            if key.lower() == city_lower:
+            if key.lower() == city_name.lower():
                 city_data = cities[key]
-                city_name = key
+                city_name = key  # نستخدم الاسم الموجود في JSON
                 break
-
+    
     if city_data is None:
         return render_template("404.html"), 404
 
+    # فنادق المدينة
     city_hotels = hotels.get(city_name, [])
 
-    # ... كود الطقس ...
-
-    # ⚠️ التعديل هنا: استخدم city_name بدلاً من name
+    # الطقس
+    api_key = os.environ.get("OPENWEATHER_API_KEY")
+    weather = None
+    if api_key:
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
+        try:
+            response = requests.get(url, timeout=5)
+            if response.status_code == 200:
+                data = response.json()
+                weather = {
+                    "temp": data["main"]["temp"],
+                    "description": data["weather"][0]["description"],
+                    "wind": data["wind"]["speed"],
+                }
+        except Exception:
+            weather = None
+    
+    # ✅ تمرير city_name (بدون %20) إلى القالب
     return render_template("city.html", city=city_data, city_name=city_name, weather=weather, hotels=city_hotels)
 
 
