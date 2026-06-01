@@ -10,10 +10,12 @@
         "travel_time": "45-60 min from Manhattan",
         "tip": "Use NJ Transit from Penn Station",
         "hotels": [
-            {"name": "Hyatt Regency Jersey City", "price": "$280", "link": "https://www.hyatt.com"}
+            {"name": "Hyatt Regency Jersey City", "price": "$280", "link": "https://www.hyatt.com"},
+            {"name": "New York Marriott Downtown", "price": "$320", "link": "https://www.marriott.com"}
         ],
         "halal_food": [
-            {"name": "The Halal Guys", "type": "Street Food", "distance": "10 min walk"}
+            {"name": "The Halal Guys", "type": "Street Food", "distance": "10 min walk"},
+            {"name": "Kashmir 9", "type": "Restaurant", "distance": "15 min drive"}
         ]
     },
     "Mexico City": {
@@ -27,10 +29,46 @@
         "travel_time": "60 min from Centro",
         "tip": "Metro Station Estadio Azteca is closest",
         "hotels": [
-            {"name": "Hilton Mexico City", "price": "$220", "link": "https://www.hilton.com"}
+            {"name": "Hilton Mexico City", "price": "$220", "link": "https://www.hilton.com"},
+            {"name": "Barcelo Mexico Reforma", "price": "$180", "link": "https://www.barcelo.com"}
         ],
         "halal_food": [
-            {"name": "Beirut", "type": "Lebanese", "distance": "20 min walk"}
+            {"name": "Beirut", "type": "Lebanese", "distance": "20 min walk"},
+            {"name": "Al Jazeera", "type": "Middle Eastern", "distance": "15 min drive"}
+        ]
+    },
+    "Toronto": {
+        "country": "Canada",
+        "stadium": "BMO Field",
+        "transport": "Subway and streetcars",
+        "safety": "Very safe city",
+        "food": "International food",
+        "image": "https://images.unsplash.com/photo-1517935706615-2717063c2225",
+        "leave_time": "2.5 hours before match",
+        "travel_time": "25 min from Union Station",
+        "tip": "Take GO Train to Exhibition Station",
+        "hotels": [
+            {"name": "Fairmont Royal York", "price": "$250", "link": "https://www.fairmont.com"}
+        ],
+        "halal_food": [
+            {"name": "Naan Kabob", "type": "Afghan", "distance": "15 min walk"}
+        ]
+    },
+    "Vancouver": {
+        "country": "Canada",
+        "stadium": "BC Place",
+        "transport": "SkyTrain and buses",
+        "safety": "Safe downtown areas",
+        "food": "Seafood and Asian cuisine",
+        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+        "leave_time": "2 hours before match",
+        "travel_time": "20 min from City Centre",
+        "tip": "Stadium-Chinatown SkyTrain station",
+        "hotels": [
+            {"name": "Pan Pacific Vancouver", "price": "$240", "link": "https://www.panpacific.com"}
+        ],
+        "halal_food": [
+            {"name": "Anatolia's Gate", "type": "Turkish", "distance": "10 min drive"}
         ]
     },
     "Los Angeles": {
@@ -44,27 +82,130 @@
         "travel_time": "60-90 min from Downtown",
         "tip": "Park at Hollywood Park Casino",
         "hotels": [
-            {"name": "Hollywood Hotel", "price": "$190", "link": "https://www.hollywoodhotel.com"}
+            {"name": "Hollywood Hotel", "price": "$190", "link": "https://www.hollywoodhotel.com"},
+            {"name": "Beverly Hills Marriott", "price": "$260", "link": "https://www.marriott.com"}
         ],
         "halal_food": [
             {"name": "Noor's Kitchen", "type": "Mediterranean", "distance": "5 min drive"}
         ]
     },
-    "San Francisco Bay Area": {
+    "Dallas": {
         "country": "USA",
-        "stadium": "Levi's Stadium",
-        "transport": "BART and trains",
-        "safety": "Watch belongings in crowded places",
-        "food": "Seafood and tech cafes",
-        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
-        "leave_time": "3 hours before match",
-        "travel_time": "45 min from SF",
-        "tip": "VTA light rail from San Jose",
+        "stadium": "AT&T Stadium",
+        "transport": "Cars and Uber",
+        "safety": "Stay in downtown areas",
+        "food": "Texas BBQ",
+        "image": "https://images.unsplash.com/photo-1514565131-fce0801e5785",
+        "leave_time": "4 hours before match",
+        "travel_time": "30 min from Downtown",
+        "tip": "Park at Lot 15 for easy exit",
         "hotels": [
-            {"name": "Santa Clara Marriott", "price": "$230", "link": "https://www.marriott.com"}
+            {"name": "Hyatt Regency Dallas", "price": "$170", "link": "https://www.hyatt.com"}
         ],
         "halal_food": [
-            {"name": "Tarboush", "type": "Lebanese", "distance": "10 min drive"}
+            {"name": "Afrah Restaurant", "type": "Mediterranean", "distance": "15 min drive"}
+        ]
+    },
+    "Miami": {
+        "country": "USA",
+        "stadium": "Hard Rock Stadium",
+        "transport": "Uber and trains",
+        "safety": "Stay alert at beaches at night",
+        "food": "Cuban food",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        "leave_time": "3.5 hours before match",
+        "travel_time": "40 min from South Beach",
+        "tip": "Tri-Rail to Golden Glades station",
+        "hotels": [
+            {"name": "Fontainebleau Miami", "price": "$300", "link": "https://www.fontainebleau.com"}
+        ],
+        "halal_food": [
+            {"name": "Shahs of Kabob", "type": "Persian", "distance": "10 min drive"}
+        ]
+    },
+    "Atlanta": {
+        "country": "USA",
+        "stadium": "Mercedes-Benz Stadium",
+        "transport": "MARTA metro",
+        "safety": "Busy tourist city",
+        "food": "Southern BBQ",
+        "image": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
+        "leave_time": "2.5 hours before match",
+        "travel_time": "15 min from Downtown",
+        "tip": "MARTA Dome/GWCC/CNN station",
+        "hotels": [
+            {"name": "Atlanta Marriott Marquis", "price": "$180", "link": "https://www.marriott.com"}
+        ],
+        "halal_food": [
+            {"name": "Cafe Agora", "type": "Mediterranean", "distance": "5 min walk"}
+        ]
+    },
+    "Seattle": {
+        "country": "USA",
+        "stadium": "Lumen Field",
+        "transport": "Light rail and buses",
+        "safety": "Rainy weather common",
+        "food": "Coffee and seafood",
+        "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+        "leave_time": "2 hours before match",
+        "travel_time": "30 min from SeaTac",
+        "tip": "Take Link Light Rail to Stadium Station",
+        "hotels": [
+            {"name": "Grand Hyatt Seattle", "price": "$220", "link": "https://www.hyatt.com"}
+        ],
+        "halal_food": [
+            {"name": "Mamnoon", "type": "Syrian", "distance": "10 min drive"}
+        ]
+    },
+    "Boston": {
+        "country": "USA",
+        "stadium": "Gillette Stadium",
+        "transport": "Subway and trains",
+        "safety": "Historic safe city",
+        "food": "Seafood and lobster",
+        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+        "leave_time": "4 hours before match",
+        "travel_time": "60 min from Downtown",
+        "tip": "Take MBTA Commuter Rail from South Station",
+        "hotels": [
+            {"name": "The Bostonian Hotel", "price": "$240", "link": "https://www.bostonianhotelboston.com"}
+        ],
+        "halal_food": [
+            {"name": "Boston Halal Pizza", "type": "Pizza", "distance": "15 min drive"}
+        ]
+    },
+    "Philadelphia": {
+        "country": "USA",
+        "stadium": "Lincoln Financial Field",
+        "transport": "SEPTA transit",
+        "safety": "Stay in tourist areas",
+        "food": "Philly cheesesteak",
+        "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+        "leave_time": "3 hours before match",
+        "travel_time": "30 min from City Hall",
+        "tip": "Broad Street Line to NRG Station",
+        "hotels": [
+            {"name": "Loews Philadelphia Hotel", "price": "$210", "link": "https://www.loewshotels.com"}
+        ],
+        "halal_food": [
+            {"name": "Saad's Halal", "type": "Halal American", "distance": "10 min drive"}
+        ]
+    },
+    "Houston": {
+        "country": "USA",
+        "stadium": "NRG Stadium",
+        "transport": "Cars and Uber",
+        "safety": "Hot weather",
+        "food": "Tex-Mex cuisine",
+        "image": "https://images.unsplash.com/photo-1494526585095-c41746248156",
+        "leave_time": "3 hours before match",
+        "travel_time": "20 min from Downtown",
+        "tip": "Metro Rail from Downtown",
+        "hotels": [
+            {"name": "Marriott Marquis Houston", "price": "$190", "link": "https://www.marriott.com"}
+        ],
+        "halal_food": [
+            {"name": "Al Aseel Grill", "type": "Mediterranean", "distance": "8 min drive"}
         ]
     },
     "Kansas City": {
@@ -84,21 +225,21 @@
             {"name": "Habashi House", "type": "Mediterranean", "distance": "12 min drive"}
         ]
     },
-    "Dallas": {
+    "San Francisco Bay Area": {
         "country": "USA",
-        "stadium": "AT&T Stadium",
-        "transport": "Cars and Uber",
-        "safety": "Stay in downtown areas",
-        "food": "Texas BBQ",
-        "image": "https://images.unsplash.com/photo-1514565131-fce0801e5785",
-        "leave_time": "4 hours before match",
-        "travel_time": "30 min from Downtown",
-        "tip": "Park at Lot 15 for easy exit",
+        "stadium": "Levi's Stadium",
+        "transport": "BART and trains",
+        "safety": "Watch belongings in crowded places",
+        "food": "Seafood and tech cafes",
+        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+        "leave_time": "3 hours before match",
+        "travel_time": "45 min from SF",
+        "tip": "VTA light rail from San Jose",
         "hotels": [
-            {"name": "Hyatt Regency Dallas", "price": "$170", "link": "https://www.hyatt.com"}
+            {"name": "Santa Clara Marriott", "price": "$230", "link": "https://www.marriott.com"}
         ],
         "halal_food": [
-            {"name": "Afrah Restaurant", "type": "Mediterranean", "distance": "15 min drive"}
+            {"name": "Tarboush", "type": "Lebanese", "distance": "10 min drive"}
         ]
     }
 }
