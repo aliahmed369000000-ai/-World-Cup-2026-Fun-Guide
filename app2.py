@@ -32,6 +32,16 @@ def home():
 
 
 # صفحة المدينة
+@app.route("/city/<name>")
+def city(name):
+
+    city_data = cities.get(name)
+
+    if city_data is None:
+
+        return render_template("404.html"), 404
+from urllib.parse import unquote
+import re  # أضف هذا السطر في أعلى الملف
 
 @app.route("/city/<name>")
 def city(name):
