@@ -50,29 +50,45 @@
             <input type="text" id="searchInput" placeholder="Search city...">
             <div id="suggestionsBox"></div>
         </div>
+<!-- Today's Matches -->
+<h2 class="section-title">⚽ Today's Matches</h2>
 
-        <!-- Today's Matches -->
-        <h2 class="section-title">⚽ Today's Matches</h2>
+<!-- Countdown Banner بدلاً من الإعلان -->
+<div class="countdown-banner" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 24px; border-radius: 20px; text-align: center; margin: 20px 0;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px;">
+        <span style="font-size: 32px;">🏆</span>
+        <h3 style="margin: 0;">World Cup 2026 Kickoff</h3>
+    </div>
+    <div id="countdown" style="font-size: 36px; font-weight: 800; letter-spacing: 2px; font-family: monospace;">Loading...</div>
+    <p style="margin-top: 12px; opacity: 0.8;">11 June 2026 • 16 Host Cities • 48 Teams</p>
+</div>
 
-        <div class="ad-box">Advertisement Space</div>
-
-        <div class="matches-section">
-            {% for match in matches %}
-            <div class="match-card-large">
-                <div class="match-teams">
-                    <h3>{{ match.team1 }} <span style="opacity: 0.6;">vs</span> {{ match.team2 }}</h3>
-                </div>
-                <div class="match-info">
-                    <div class="match-time">{{ match.time }}</div>
-                    <div class="match-date" data-date="{{ match.date }}">{{ match.date }}</div>
-                    <div class="match-stadium">🏟 {{ match.stadium }}</div>
-                </div>
-                <button class="remind-btn">🔔 Remind Me</button>
+<div class="matches-section">
+    {% for match in matches %}
+    <div class="match-card-large">
+        <div class="match-teams">
+            <div style="text-align: center; flex: 1;">
+                <div style="font-size: 32px; margin-bottom: 8px;">🏳️</div>
+                <h3>{{ match.team1 }}</h3>
             </div>
-            {% endfor %}
+            <div style="font-size: 24px; font-weight: 700; color: #fbbf24;">VS</div>
+            <div style="text-align: center; flex: 1;">
+                <div style="font-size: 32px; margin-bottom: 8px;">🏳️</div>
+                <h3>{{ match.team2 }}</h3>
+            </div>
         </div>
+        <div class="match-info">
+            <div class="match-time">{{ match.time }}</div>
+            <div class="match-date">{{ match.date[:10] }}</div>
+            <div class="match-stadium">🏟 {{ match.stadium }}</div>
+            <div style="font-size: 12px; opacity: 0.7; margin-top: 5px;">📍 {{ match.city }}</div>
+        </div>
+        <button class="remind-btn">🔔 Remind Me</button>
+    </div>
+    {% endfor %}
+</div>
 
-        <a href="/matches" class="view-all-btn">View All Matches →</a>
+<a href="/matches" class="view-all-btn">📅 View All Matches →</a>
 
         <!-- Favorite Cities -->
         <div class="favorites-section">
@@ -505,6 +521,27 @@
         }
         loadFavorites();
     </script>
+<script>
+    function updateCountdown() {
+        const target = new Date("June 11, 2026 00:00:00").getTime();
+        const now = new Date().getTime();
+        const diff = target - now;
+        
+        if (diff < 0) {
+            document.getElementById("countdown").innerHTML = "🎉 Tournament Started! 🎉";
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (86400000)) / (3600000));
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        
+        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
 
