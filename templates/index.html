@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSYLQ42JXP"></script>
@@ -12,7 +13,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="World Cup 2026 Fan Guide helps football fans discover host cities, stadiums, hotels, halal food, weather, and match schedules.">
+    <meta name="description"
+        content="World Cup 2026 Fan Guide helps football fans discover host cities, stadiums, hotels, halal food, weather, and match schedules.">
     <title>World Cup 2026 Fan Guide</title>
 
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -30,7 +32,8 @@
 
         <!-- Hero -->
         <div class="hero">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="World Cup 2026 Logo" class="logo" style="width: 80px;">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="World Cup 2026 Logo" class="logo"
+                style="width: 80px;">
             <h1 id="title">🌎 World Cup 2026 Fan Guide</h1>
             <p id="subtitle">Quick guide for World Cup fans</p>
         </div>
@@ -49,12 +52,14 @@
         <h2 class="section-title">⚽ Today's Matches</h2>
 
         <!-- Countdown Banner -->
-        <div class="countdown-banner" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 24px; border-radius: 20px; text-align: center; margin: 20px 0;">
+        <div class="countdown-banner"
+            style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 24px; border-radius: 20px; text-align: center; margin: 20px 0;">
             <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px;">
                 <span style="font-size: 32px;">🏆</span>
                 <h3 style="margin: 0;">World Cup 2026 Kickoff</h3>
             </div>
-            <div id="countdown" style="font-size: 36px; font-weight: 800; letter-spacing: 2px; font-family: monospace;">Loading...</div>
+            <div id="countdown" style="font-size: 36px; font-weight: 800; letter-spacing: 2px; font-family: monospace;">
+                Loading...</div>
             <p style="margin-top: 12px; opacity: 0.8;">11 June 2026 • 16 Host Cities • 48 Teams</p>
         </div>
 
@@ -111,25 +116,31 @@
 
         <div class="experiences-grid">
             <div class="experience-card">
-                <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📱</div>
+                <div
+                    style="background: linear-gradient(135deg, #667eea, #764ba2); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+                    📱</div>
                 <div class="experience-content">
                     <h3>Travel eSIM</h3>
                     <p>Stay connected during your trip with instant mobile internet.</p>
                     <div class="experience-meta">
                         <span class="experience-price">From $5</span>
-                        <a href="https://airalo.com" target="_blank" class="button" style="padding: 8px 16px; font-size: 14px;">Get eSIM</a>
+                        <a href="https://airalo.com" target="_blank" class="button"
+                            style="padding: 8px 16px; font-size: 14px;">Get eSIM</a>
                     </div>
                 </div>
             </div>
 
             <div class="experience-card">
-                <div style="background: linear-gradient(135deg, #f093fb, #f5576c); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">🔒</div>
+                <div
+                    style="background: linear-gradient(135deg, #f093fb, #f5576c); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+                    🔒</div>
                 <div class="experience-content">
                     <h3>Travel VPN</h3>
                     <p>Secure your connection while traveling in public WiFi.</p>
                     <div class="experience-meta">
                         <span class="experience-price">From $3/mo</span>
-                        <a href="https://surfshark.com" target="_blank" class="button" style="padding: 8px 16px; font-size: 14px;">Get VPN</a>
+                        <a href="https://surfshark.com" target="_blank" class="button"
+                            style="padding: 8px 16px; font-size: 14px;">Get VPN</a>
                     </div>
                 </div>
             </div>
@@ -160,7 +171,7 @@
             "San Francisco Bay Area",
             "Monterrey",
             "Guadalajara"
-            
+
         ];
 
         searchInput.addEventListener("input", function () {
@@ -207,17 +218,17 @@
             const target = new Date("June 11, 2026 00:00:00").getTime();
             const now = new Date().getTime();
             const diff = target - now;
-            
+
             if (diff < 0) {
                 document.getElementById("countdown").innerHTML = "🎉 Tournament Started! 🎉";
                 return;
             }
-            
+
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (86400000)) / (3600000));
             const minutes = Math.floor((diff % 3600000) / 60000);
             const seconds = Math.floor((diff % 60000) / 1000);
-            
+
             document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
         updateCountdown();
@@ -298,12 +309,14 @@
             }
 
             container.innerHTML = favorites.map(city => `
-                <div style="display: inline-block; margin: 5px;">
-                    <a href="/city/${city}" class="button" style="padding: 8px 16px; font-size: 14px;">⭐ ${city}</a>
-                </div>
-            `).join("");
+    <div style="display: inline-block; margin: 5px;">
+        <a href="/city/encodeURIComponent(city)"class="button"style="padding:8px16px;font−size:14px;">⭐{encodeURIComponent(city)}" class="button" style="padding: 8px 16px; font-size: 14px;">⭐encodeURIComponent(city)"class="button"style="padding:8px16px;font−size:14px;">⭐{city}</a>
+    </div>
+`).join("");
+
         }
         loadFavorites();
     </script>
 </body>
+
 </html>
