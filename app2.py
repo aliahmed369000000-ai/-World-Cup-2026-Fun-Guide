@@ -32,14 +32,31 @@ def home():
 
 
 # صفحة المدينة
+
 @app.route("/city/<name>")
 def city(name):
-
-    city_data = cities.get(name)
-
+    # فك ترميز URL (مثلاً %20 -> مسافة)
+    city_name = unquote(name).strip()
+    
+    # إزالة المسافات المتكررة
+    city_name = re.sub(r'\s+', ' ', city_name)
+    
+    # البحث المباشر
+    city_data = cities.get(city_name)
+    
+    # إذا لم نجد، نحاول البحث بأحرف صغيرة (لأن بعض المدن قد تكتب بحروف مختلفة)
     if city_data is None:
-
+        city_lower = city_name.lower()
+        for key in cities:
+            if key.lower() == city_lower:
+                city_data = cities[key]
+                city_name = key
+                break
+    
+    if city_data is None:
         return render_template("404.html"), 404
+    
+    # باقي الكود كما هو...
 
     # فنادق المدينة
     city_hotels = hotels.get(name, [])
