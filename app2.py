@@ -28,6 +28,22 @@ def home():
 
     return render_template("index.html", cities=cities, matches=matches[:8])
 
+@app.route("/city/<path:name>")
+def city(name):
+    # محاولة البحث بالاسم الأصلي
+    city_data = cities.get(name)
+    
+    # إذا لم يجد، جرب البحث بدون "Bay Area" أو تعديلات
+    if city_data is None:
+        # جرب إزالة "Bay Area" مثلاً
+        simplified = name.replace(" Bay Area", "")
+        city_data = cities.get(simplified)
+    
+    if city_data is None:
+        return render_template("404.html"), 404
+    
+    # باقي الكود كما هو...
+
 
 # صفحة المدينة
 @app.route("/city/<name>")
