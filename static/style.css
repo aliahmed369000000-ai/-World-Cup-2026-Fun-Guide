@@ -62,18 +62,34 @@ body {
 
 /* ====== HERO ====== */
 .hero {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
-    color: white;
-}
+    position: relative;
+    overflow: hidden;
 
+    background:
+    linear-gradient(
+    rgba(15,23,42,.85),
+    rgba(15,23,42,.85)
+    ),
+    url('/static/images/stadium.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 30px;
+
+    padding: 100px 30px;
+
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 50px;
+}
 .hero h1 {
-    font-size: 42px;
-    margin-bottom: 12px;
-    font-weight: 700;
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
 }
 
 .hero p {
@@ -1100,4 +1116,28 @@ body {
         box-shadow: none;
         border: 1px solid #ddd;
     }
+}
+.stats-bar{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.stat-card{
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+text-align:center;
+}
+
+.stat-number{
+font-size:32px;
+font-weight:800;
+}
+
+.stat-label{
+font-size:14px;
+opacity:.8;
 }
