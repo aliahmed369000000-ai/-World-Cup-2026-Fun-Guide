@@ -1,23 +1,4 @@
 {
-    {
-    "New York": { ... },
-    "Mexico City": { ... },
-    "Monterrey": { ... },
-    "Guadalajara": { ... },
-    "Toronto": { ... },
-    "Vancouver": { ... },
-    "Los Angeles": { ... },
-    "Dallas": { ... },
-    "San Francisco Bay Area": { ... },
-    "Miami": { ... },
-    "Atlanta": { ... },
-    "Seattle": { ... },
-    "Boston": { ... },
-    "Philadelphia": { ... },
-    "Houston": { ... },
-    "Kansas City": { ... }
-}
-    
     "New York": {
         "country": "USA",
         "stadium": "MetLife Stadium",
