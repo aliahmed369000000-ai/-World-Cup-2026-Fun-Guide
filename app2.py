@@ -34,16 +34,6 @@ def home():
 
 
 
-# صفحة المدينة
-@app.route("/city/<name>")
-def city(name):
-
-    city_data = cities.get(name)
-
-    if city_data is None:
-
-        return render_template("404.html"), 404
-
 @app.route("/city/<name>")
 def city(name):
     # فك ترميز URL (مثلاً %20 -> مسافة)
