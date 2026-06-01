@@ -2,6 +2,9 @@ from flask import Flask, render_template
 import json
 import requests
 import os
+from urllib.parse import unquote
+import re  # أضف هذا السطر في أعلى الملف
+
 
 
 app = Flask(__name__)
@@ -40,8 +43,6 @@ def city(name):
     if city_data is None:
 
         return render_template("404.html"), 404
-from urllib.parse import unquote
-import re  # أضف هذا السطر في أعلى الملف
 
 @app.route("/city/<name>")
 def city(name):
