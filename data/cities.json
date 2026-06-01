@@ -11,7 +11,7 @@
         "tip": "Use NJ Transit from Penn Station",
         "hotels": [
             {"name": "Hyatt Regency Jersey City", "price": "$280", "link": "https://www.hyatt.com"},
-            {"name": "Marriott Downtown", "price": "$320", "link": "https://www.marriott.com"}
+            {"name": "New York Marriott Downtown", "price": "$320", "link": "https://www.marriott.com"}
         ],
         "halal_food": [
             {"name": "The Halal Guys", "type": "Street Food", "distance": "10 min walk"},
