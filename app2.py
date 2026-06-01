@@ -65,14 +65,7 @@ def city(name):
         except Exception:
             weather = None
     
-    return render_template(
-        "city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels
-    )
-
-
-    return render_template(
-        "city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels
-    )
+    return render_template("city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels)
 
 
 # صفحة About
