@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSYLQ42JXP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WSYLQ42JXP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="World Cup 2026 Fan Guide helps football fans discover host cities, stadiums, hotels, halal food, weather, and match schedules.">
+    <title>World Cup 2026 Fan Guide</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Top Actions -->
+        <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+            <button id="langBtn" class="button">العربية</button>
+            <button id="darkBtn" class="button">🌙 Dark Mode</button>
+        </div>
+
+        <!-- Hero -->
+        <div class="hero">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="World Cup 2026 Logo" class="logo"
+                style="width: 80px;">
+            <h1 id="title">🌎 World Cup 2026 Fan Guide</h1>
+            <p id="subtitle">Quick guide for World Cup fans</p>
+        </div>
+
+        <!-- Install App -->
+        <button id="installBtn" class="button" style="margin-bottom: 20px;">📲 Install App</button>
+
+        <!-- Search -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search city...">
+            <div id="suggestionsBox"></div>
+        </div>
+
+        <!-- Today's Matches -->
+        <h2 class="section-title">⚽ Today's Matches</h2>
+
+        <!-- Countdown Banner -->
+        <div class="countdown-banner"
+            style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 24px; border-radius: 20px; text-align: center; margin: 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px;">
+                <span style="font-size: 32px;">🏆</span>
+                <h3 style="margin: 0;">World Cup 2026 Kickoff</h3>
+            </div>
+            <div id="countdown" style="font-size: 36px; font-weight: 800; letter-spacing: 2px; font-family: monospace;">
+                Loading...</div>
+            <p style="margin-top: 12px; opacity: 0.8;">11 June 2026 • 16 Host Cities • 48 Teams</p>
+        </div>
+
+        <div class="matches-section">
+            {% for match in matches %}
+            <div class="match-card-large">
+                <div class="match-teams">
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 32px; margin-bottom: 8px;">🏳️</div>
+                        <h3>{{ match.team1 }}</h3>
+                    </div>
+                    <div style="font-size: 24px; font-weight: 700; color: #fbbf24;">VS</div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 32px; margin-bottom: 8px;">🏳️</div>
+                        <h3>{{ match.team2 }}</h3>
+                    </div>
+                </div>
+                <div class="match-info">
+                    <div class="match-time">{{ match.time }}</div>
+                    <div class="match-date">{{ match.date[:10] }}</div>
+                    <div class="match-stadium">🏟 {{ match.stadium }}</div>
+                    <div style="font-size: 12px; opacity: 0.7; margin-top: 5px;">📍 {{ match.city }}</div>
+                </div>
+                <button class="remind-btn">🔔 Remind Me</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="/matches" class="view-all-btn">📅 View All Matches →</a>
+
+        <!-- Favorite Cities -->
+        <div class="favorites-section">
+            <h2>⭐ Your Favorite Cities</h2>
+            <div id="favoritesContainer"></div>
+        </div>
+
+        <!-- Cities Grid -->
+        <h2 class="section-title">🏙 Host Cities</h2>
+
+        <div class="cities-grid">
+            {% for city in cities %}
+<a href="{{ url_for('city', name=city) }}" class="city-card">
+    <img src="{{ cities[city].image }}" alt="{{ city }}">
+    <div class="overlay">
+        <h3>{{ city }}</h3>
+        <p>{{ cities[city].country }}</p>
+    </div>
+</a>
+{% endfor %}
+        </div>
+
+        <!-- Travel Essentials -->
+        <h2 class="section-title">📱 Travel Essentials</h2>
+
+        <div class="experiences-grid">
+            <div class="experience-card">
+                <div
+                    style="background: linear-gradient(135deg, #667eea, #764ba2); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+                    📱</div>
+                <div class="experience-content">
+                    <h3>Travel eSIM</h3>
+                    <p>Stay connected during your trip with instant mobile internet.</p>
+                    <div class="experience-meta">
+                        <span class="experience-price">From $5</span>
+                        <a href="https://airalo.com" target="_blank" class="button"
+                            style="padding: 8px 16px; font-size: 14px;">Get eSIM</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div
+                    style="background: linear-gradient(135deg, #f093fb, #f5576c); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+                    🔒</div>
+                <div class="experience-content">
+                    <h3>Travel VPN</h3>
+                    <p>Secure your connection while traveling in public WiFi.</p>
+                    <div class="experience-meta">
+                        <span class="experience-price">From $3/mo</span>
+                        <a href="https://surfshark.com" target="_blank" class="button"
+                            style="padding: 8px 16px; font-size: 14px;">Get VPN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <!-- Search Script -->
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const suggestionsBox = document.getElementById("suggestionsBox");
+
+        const hostCities = [
+            "New York",
+            "Mexico City",
+            "Toronto",
+            "Vancouver",
+            "Los Angeles",
+            "Dallas",
+            "Miami",
+            "Atlanta",
+            "Seattle",
+            "Boston",
+            "Philadelphia",
+            "Houston",
+            "Kansas City",
+            "San Francisco Bay Area",
+            "Monterrey",
+            "Guadalajara"
+
+        ];
+
+        searchInput.addEventListener("input", function () {
+            const value = this.value.toLowerCase().trim();
+            suggestionsBox.innerHTML = "";
+
+            if (value.length === 0) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            const results = hostCities.filter(city => city.toLowerCase().includes(value));
+
+            if (results.length === 0) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            results.forEach(city => {
+                const item = document.createElement("div");
+                item.className = "suggestion-item";
+                item.textContent = city;
+                item.onclick = function () {
+                    searchInput.value = city;
+                    suggestionsBox.style.display = "none";
+                    window.location.href = "/city/" + encodeURIComponent(city);
+                };
+                suggestionsBox.appendChild(item);
+            });
+
+            suggestionsBox.style.display = "block";
+        });
+
+        document.addEventListener("click", function (event) {
+            if (event.target !== searchInput && !suggestionsBox.contains(event.target)) {
+                suggestionsBox.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- Countdown Script -->
+    <script>
+        function updateCountdown() {
+            const target = new Date("June 11, 2026 00:00:00").getTime();
+            const now = new Date().getTime();
+            const diff = target - now;
+
+            if (diff < 0) {
+                document.getElementById("countdown").innerHTML = "🎉 Tournament Started! 🎉";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (86400000)) / (3600000));
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+
+    <!-- Install App -->
+    <script>
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        document.getElementById("installBtn").addEventListener("click", async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+            }
+        });
+    </script>
+
+    <!-- Language Toggle -->
+    <script>
+        let arabic = false;
+        const langBtn = document.getElementById("langBtn");
+
+        langBtn.addEventListener("click", function () {
+            arabic = !arabic;
+
+            if (arabic) {
+                document.body.dir = "rtl";
+                document.getElementById("title").innerText = "🏆 دليل كأس العالم 2026";
+                document.getElementById("subtitle").innerText = "دليل سريع لمشجعي كأس العالم";
+                langBtn.innerText = "English";
+            } else {
+                document.body.dir = "ltr";
+                document.getElementById("title").innerText = "🌎 World Cup 2026 Fan Guide";
+                document.getElementById("subtitle").innerText = "Quick guide for World Cup fans";
+                langBtn.innerText = "العربية";
+            }
+        });
+    </script>
+
+    <!-- Dark Mode -->
+    <script>
+        const darkBtn = document.getElementById("darkBtn");
+        darkBtn.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+        });
+
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+    </script>
+
+    <!-- Notifications -->
+    <script>
+        document.querySelectorAll(".remind-btn").forEach(btn => {
+            btn.addEventListener("click", async function () {
+                const permission = await Notification.requestPermission();
+                if (permission === "granted") {
+                    new Notification("⚽ Match Reminder", { body: "Your World Cup match starts soon!" });
+                }
+            });
+        });
+    </script>
+
+    <!-- Favorites -->
+    <script>
+        function loadFavorites() {
+    const container = document.getElementById("favoritesContainer");
+    const favorites = JSON.parse(localStorage.getItem("favoriteCities")) || [];
+
+    if (favorites.length === 0) {
+        container.innerHTML = "<p style='color:#666;'>No favorite cities yet.</p>";
+        return;
+    }
+
+    container.innerHTML = favorites.map(city => `
+        <div style="display:inline-block; margin:5px;">
+            <a href="/city/${encodeURIComponent(city)}"
+               class="button"
+               style="padding:8px 16px; font-size:14px;">
+               ⭐ ${city}
+            </a>
+        </div>
+    `).join("");
+}
+
+        }
+        loadFavorites();
+    </script>
+</body>
+
+</html>
