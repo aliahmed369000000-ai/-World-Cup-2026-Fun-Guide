@@ -28,10 +28,11 @@ def home():
 
     return render_template("index.html", cities=cities, matches=matches[:8])
 
+
 @app.route("/city/<name>")
 def city(name):
     # تحويل %20 إلى مسافة عادية
-    city_name = name.replace('%20', ' ').replace('+', ' ').strip()
+    city_name = name.replace("%20", " ").replace("+", " ").strip()
 
     # البحث المباشر في قاموس المدن
     city_data = cities.get(city_name)
@@ -51,25 +52,32 @@ def city(name):
     # جلب فنادق المدينة
     city_hotels = hotels.get(city_name, [])
 
-    # الطقس (اختياري    api_key = os.environ.get("OPENWEATHER_API_KEY")
-    weather = None
-    if api_key:
-        url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
-        try:
-            response = requests.get(url, timeout=5)
-            response.status_code == 200:
-                data = response.json()
-                weather = {
-                    "temp": data["main"]["temp"],
-                    "description": dataweather"][0]["description"],
-                    "wind": data["wind"]["speed"],
-                }
-        except Exception:
-            weather = None
+   api_key = os.environ.get("OPENWEATHER_API_KEY")
+weather = None
+
+if api_key:
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
+    try:
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:  # ✅ تم تصحيح: كانت مقارنة بدون if
+            data = response.json()
+            weather = {
+                "temp": data["main"]["temp"],
+                "description": data["weather"][0]["description"],  # ✅ تم تصحيح: كان dataweather"][0]
+                "wind": data["wind"]["speed"],
+            }
+    except Exception:
+        weather = None
+
 
     # تمرير city_name (بدون %20) إلى القالب
-    return render_template("city.html", city=city_data, city_name=city_name, weather=weather, hotels=city_hotels)
-
+    return render_template(
+        "city.html",
+        city=city_data,
+        city_name=city_name,
+        weather=weather,
+        hotels=city_hotels,
+    )
 
     # فنادق المدينة
     city_hotels = hotels.get(city_name, [])
@@ -90,32 +98,34 @@ def city(name):
                 }
         except Exception:
             weather = None
-    
+
     # ✅ تمرير city_name (بدون %20) إلى القالب
-    return render_template("city.html", city=city_data, city_name=city_name, weather=weather, hotels=city_hotels)
+    return render_template(
+        "city.html",
+        city=city_data,
+        city_name=city_name,
+        weather=weather,
+        hotels=city_hotels,
+    )
 
-
-
-
-    
     # باقي الكود كما هو...
 
     # فنادق المدينة
     city_hotels = hotels.get(name, [])
 
     # API KEY
-        # API KEY من Environment Variables
+    # API KEY من Environment Variables
     api_key = os.environ.get("OPENWEATHER_API_KEY")
-    
+
     weather = None
-    
+
     if api_key:
         # طلب الطقس
         url = f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid={api_key}&units=metric"
-        
+
         try:
             response = requests.get(url, timeout=5)
-            
+
             if response.status_code == 200:
                 data = response.json()
                 weather = {
@@ -125,8 +135,10 @@ def city(name):
                 }
         except Exception:
             weather = None
-    
-    return render_template("city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels)
+
+    return render_template(
+        "city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels
+    )
 
 
 # صفحة About
