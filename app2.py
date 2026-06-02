@@ -98,7 +98,13 @@ def about():
 def contact():
 
     return render_template("contact.html")
+    
+@app.route("/affiliate-disclosure")
+def affiliate_disclosure():
 
+    return render_template(
+        "affiliate_disclosure.html"
+    )
 
 # صفحة Privacy Policy
 @app.route("/privacy")
