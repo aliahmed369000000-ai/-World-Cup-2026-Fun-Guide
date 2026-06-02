@@ -12,14 +12,16 @@ const countDate = new Date('June 11, 2026 00:00:00').getTime();
 setInterval(() => {
     let now = new Date().getTime();
     let gap = countDate - now;
-    let days = Math.floor(gap / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((gap % (1000 * 60)) / 1000);
-    
-    const countdownElement = document.getElementById('countdown');
-    if (countdownElement) {
-        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    if (gap > 0) {
+        let days = Math.floor(gap / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((gap % (1000 * 60)) / 1000);
+        
+        const countdownElement = document.getElementById('countdown');
+        if (countdownElement) {
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
     }
 }, 1000);
 
@@ -28,8 +30,8 @@ let allMatches = [];
 let currentMatchCount = 8;
 let matchesContainer = document.getElementById('matchesContainer');
 
-// Fetch matches from JSON file
-fetch('/data/matches.json')
+// Fetch matches from Flask API
+fetch('/api/matches')
     .then(response => response.json())
     .then(data => {
         allMatches = data;
@@ -39,7 +41,7 @@ fetch('/data/matches.json')
     .catch(error => {
         console.error('Error loading matches:', error);
         if (matchesContainer) {
-            matchesContainer.innerHTML = '<p style="color: red;">Error loading matches. Please try again later.</p>';
+            matchesContainer.innerHTML = '<p style="color: red; text-align: center;">Error loading matches. Please refresh the page.</p>';
         }
     });
 
@@ -58,25 +60,36 @@ function displayMatches(limit) {
             <div class="match-card">
                 <div class="match-teams">
                     <div class="team">
-                        <span class="team-name">${match.team1}</span>
+                        <span class="team-name">${escapeHtml(match.team1)}</span>
                     </div>
                     <div class="vs">VS</div>
                     <div class="team">
-                        <span class="team-name">${match.team2}</span>
+                        <span class="team-name">${escapeHtml(match.team2)}</span>
                     </div>
                 </div>
                 <div class="match-info">
                     <div class="match-time">🕐 ${match.time}</div>
                     <div class="match-date">📅 ${matchDate}</div>
-                    <div class="match-stadium">🏟 ${match.stadium}</div>
-                    <div class="match-city">📍 ${match.city}</div>
+                    <div class="match-stadium">🏟 ${escapeHtml(match.stadium)}</div>
+                    <div class="match-city">📍 ${escapeHtml(match.city)}</div>
                 </div>
-                <button class="remind-btn" onclick="remindMe('${match.team1}', '${match.team2}')">🔔 Remind Me</button>
+                <button class="remind-btn" onclick="remindMe('${escapeHtml(match.team1)}', '${escapeHtml(match.team2)}')">🔔 Remind Me</button>
             </div>
         `;
     }
     
     matchesContainer.innerHTML = matchesHtml;
+}
+
+// Helper function to prevent XSS
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
 }
 
 // Function to setup load more button
@@ -89,22 +102,22 @@ function setupLoadMoreButton() {
         
         if (newLimit >= allMatches.length) {
             displayMatches(allMatches.length);
-            loadMoreBtn.textContent = 'All Matches Loaded';
+            loadMoreBtn.textContent = '✓ All Matches Loaded';
             loadMoreBtn.disabled = true;
             loadMoreBtn.style.opacity = '0.5';
             loadMoreBtn.style.cursor = 'not-allowed';
         } else {
             currentMatchCount = newLimit;
             displayMatches(currentMatchCount);
-            loadMoreBtn.textContent = `Load More Matches (${allMatches.length - currentMatchCount} remaining)`;
+            const remaining = allMatches.length - currentMatchCount;
+            loadMoreBtn.textContent = `Load More Matches (${remaining} remaining)`;
         }
     });
 }
 
 // Remind Me function
 function remindMe(team1, team2) {
-    alert(`Reminder set for ${team1} vs ${team2}!`);
-    // You can enhance this to save to localStorage or send notification
+    alert(`🔔 Reminder set for ${team1} vs ${team2}!`);
 }
 
 // Favorites logic for hotels
@@ -118,58 +131,6 @@ function toggleFavs(hotel) {
         alert(`${hotel} added to favorites!`);
     }
     localStorage.setItem('favs', JSON.stringify(favs));
-}
-
-// Search functionality (if needed)
-const searchInput = document.getElementById('searchInput');
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const filteredMatches = allMatches.filter(match => 
-            match.city.toLowerCase().includes(searchTerm) ||
-            match.team1.toLowerCase().includes(searchTerm) ||
-            match.team2.toLowerCase().includes(searchTerm)
-        );
-        
-        if (searchTerm.length > 0) {
-            displayFilteredMatches(filteredMatches);
-        } else {
-            displayMatches(currentMatchCount);
-        }
-    });
-}
-
-function displayFilteredMatches(filteredMatches) {
-    if (!matchesContainer) return;
-    
-    let matchesHtml = '';
-    for (let i = 0; i < filteredMatches.length; i++) {
-        const match = filteredMatches[i];
-        const matchDate = match.date.split('T')[0];
-        
-        matchesHtml += `
-            <div class="match-card">
-                <div class="match-teams">
-                    <div class="team">
-                        <span class="team-name">${match.team1}</span>
-                    </div>
-                    <div class="vs">VS</div>
-                    <div class="team">
-                        <span class="team-name">${match.team2}</span>
-                    </div>
-                </div>
-                <div class="match-info">
-                    <div class="match-time">🕐 ${match.time}</div>
-                    <div class="match-date">📅 ${matchDate}</div>
-                    <div class="match-stadium">🏟 ${match.stadium}</div>
-                    <div class="match-city">📍 ${match.city}</div>
-                </div>
-                <button class="remind-btn" onclick="remindMe('${match.team1}', '${match.team2}')">🔔 Remind Me</button>
-            </div>
-        `;
-    }
-    
-    matchesContainer.innerHTML = matchesHtml;
 }
 
 // Load saved theme
