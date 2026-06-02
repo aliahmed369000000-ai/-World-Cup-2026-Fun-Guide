@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ city_name }} World Cup 2026 Fan Guide — Hotels, halal food, transport, stadium info and match day tips.">
+    <title>{{ city_name }} — World Cup 2026 Fan Guide</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="nav-logo">⚽ <span>WC</span>2026</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/matches" class="nav-link">Matches</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+        <div class="nav-actions">
+            <button id="darkBtn" class="nav-btn">🌙</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <a href="/" class="back-link">← Back to Home</a>
+
+    <!-- CITY HERO -->
+    <div class="city-hero animate-up">
+        <img src="{{ city.image }}" alt="{{ city_name }}">
+        <div class="city-hero-overlay">
+            <div class="city-hero-badges">
+                <span class="badge badge-primary">{{ city.country }}</span>
+                <span class="badge badge-glass">🏟 {{ city.stadium }}</span>
+            </div>
+            <h1 class="city-hero-title">{{ city_name }}</h1>
+            <p class="city-hero-sub">FIFA World Cup 2026 Host City</p>
+        </div>
+        <div class="city-hero-action">
+            <button id="favoriteBtn" class="btn btn-secondary btn-sm">♡ Save City</button>
+        </div>
+    </div>
+
+    <!-- WEATHER -->
+    {% if weather %}
+    <div class="weather-card animate-up">
+        <div class="weather-icon">
+            {% if weather.description and 'rain' in weather.description %}🌧
+            {% elif weather.description and 'cloud' in weather.description %}⛅
+            {% elif weather.description and 'snow' in weather.description %}❄️
+            {% elif weather.description and 'storm' in weather.description %}⛈
+            {% else %}☀️
+            {% endif %}
+        </div>
+        <div>
+            <div class="weather-temp">{{ weather.temp | round | int }}°C</div>
+            <div class="weather-desc">{{ weather.description | title }}</div>
+            <div class="weather-wind">💨 Wind: {{ weather.wind }} m/s</div>
+        </div>
+        <div style="margin-left:auto;text-align:right;">
+            <div style="font-size:13px;opacity:0.6;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Live Weather</div>
+            <div style="font-size:22px;font-weight:700;margin-top:4px;">{{ city_name }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- INFO CARDS -->
+    <div class="section-header">
+        <h2 class="section-title">CITY <span>INFO</span></h2>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-card animate-up">
+            <div class="info-card-icon">🚇</div>
+            <h3>Getting Around</h3>
+            <p>{{ city.transport }}</p>
+        </div>
+        <div class="info-card animate-up">
+            <div class="info-card-icon" style="background: linear-gradient(135deg, #10b981, #059669);">🛡</div>
+            <h3>Safety Tips</h3>
+            <p>{{ city.safety }}</p>
+        </div>
+        <div class="info-card animate-up">
+            <div class="info-card-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">🍽</div>
+            <h3>Local Food</h3>
+            <p>{{ city.food }}</p>
+        </div>
+    </div>
+
+    <!-- MATCHDAY PLAN -->
+    <div class="section-header">
+        <h2 class="section-title">MATCH DAY <span>PLAN</span></h2>
+    </div>
+
+    <div class="matchday-card animate-up">
+        <div class="matchday-title">⚽ Your Match Day Roadmap</div>
+        <div class="matchday-steps">
+            <div class="matchday-step">
+                <div class="matchday-step-icon">🕒</div>
+                <div class="matchday-step-content">
+                    <h4>Leave Time</h4>
+                    <p>{{ city.leave_time }}</p>
+                </div>
+            </div>
+            <div class="matchday-step">
+                <div class="matchday-step-icon">🚕</div>
+                <div class="matchday-step-content">
+                    <h4>Travel Time to Stadium</h4>
+                    <p>{{ city.travel_time }}</p>
+                </div>
+            </div>
+            <div class="matchday-step">
+                <div class="matchday-step-icon">💡</div>
+                <div class="matchday-step-content">
+                    <h4>Local Tip</h4>
+                    <p>{{ city.tip }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOTELS -->
+    <div class="section-header">
+        <h2 class="section-title">STAY <span>NEARBY</span></h2>
+    </div>
+
+    <div class="hotels-grid">
+        {% for hotel in city.hotels %}
+        <div class="hotel-card animate-up">
+            <div class="hotel-img">🏨</div>
+            <div class="hotel-info">
+                <h4>{{ hotel.name }}</h4>
+                <div class="hotel-stars">★★★★☆</div>
+                <div class="hotel-footer">
+                    <div>
+                        <div class="hotel-price">{{ hotel.price }}</div>
+                        <div class="hotel-night">per night</div>
+                    </div>
+                    <a href="{{ hotel.link }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Book Now →</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if hotels %}
+        {% for hotel in hotels %}
+        <div class="hotel-card animate-up">
+            <div class="hotel-img">🏨</div>
+            <div class="hotel-info">
+                <h4>{{ hotel.name }}</h4>
+                <div class="hotel-stars">★★★★☆</div>
+                <div class="hotel-footer">
+                    <div>
+                        <div class="hotel-price">{{ hotel.price }}</div>
+                        <div class="hotel-night">per night</div>
+                    </div>
+                    <a href="{{ hotel.link }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Book Now →</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- HALAL FOOD -->
+    <div class="section-header">
+        <h2 class="section-title">HALAL <span>FOOD</span></h2>
+        <span style="font-size:13px;color:var(--text-muted);font-weight:600;">🕌 Muslim-friendly restaurants</span>
+    </div>
+
+    <div class="food-grid">
+        {% for food in city.halal_food %}
+        <div class="food-card animate-up">
+            <div class="food-icon">🥙</div>
+            <div>
+                <div class="food-name">{{ food.name }}</div>
+                <div class="food-meta">{{ food.type }} · 📍 {{ food.distance }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- AD -->
+    <div class="ad-box">Advertisement Space</div>
+
+</div>
+
+{% include "footer.html" %}
+
+<script>
+// Dark Mode
+const darkBtn = document.getElementById("darkBtn");
+darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    darkBtn.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+});
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkBtn.textContent = "☀️";
+}
+
+// Favorite
+const favoriteBtn = document.getElementById("favoriteBtn");
+const cityName = "{{ city_name }}";
+let favs = JSON.parse(localStorage.getItem("favoriteCities") || "[]");
+
+function updateFavBtn() {
+    if (favs.includes(cityName)) {
+        favoriteBtn.textContent = "❤️ Saved";
+        favoriteBtn.style.background = "var(--primary)";
+        favoriteBtn.style.color = "white";
+    }
+}
+updateFavBtn();
+
+favoriteBtn.addEventListener("click", function() {
+    if (favs.includes(cityName)) {
+        favs = favs.filter(c => c !== cityName);
+        favoriteBtn.textContent = "♡ Save City";
+        favoriteBtn.style.background = "";
+        favoriteBtn.style.color = "";
+    } else {
+        favs.push(cityName);
+        favoriteBtn.textContent = "❤️ Saved!";
+        favoriteBtn.style.background = "var(--primary)";
+        favoriteBtn.style.color = "white";
+    }
+    localStorage.setItem("favoriteCities", JSON.stringify(favs));
+});
+</script>
+
+</body>
+</html>
