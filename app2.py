@@ -41,7 +41,7 @@ def city(name):
         if city_data is None:
             return render_template("404.html"), 404
 
-        city_hotels = hotels.get(name, [])
+        city_hotels = []
 
         api_key = os.environ.get("OPENWEATHER_API_KEY")
 
