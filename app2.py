@@ -33,41 +33,49 @@ def home():
 @app.route("/city/<path:name>")
 def city(name):
 
-    city_data = cities.get(name)
+    try:
+        print("CITY REQUEST =", repr(name))
 
-    if city_data is None:
+        city_data = cities.get(name)
 
-        return render_template("404.html"), 404
+        if city_data is None:
+            return render_template("404.html"), 404
 
-    # فنادق المدينة
-    city_hotels = hotels.get(name, [])
+        city_hotels = hotels.get(name, [])
 
-    # API KEY
-    # API KEY من Environment Variables
-    api_key = os.environ.get("OPENWEATHER_API_KEY")
+        api_key = os.environ.get("OPENWEATHER_API_KEY")
 
-    weather = None
+        weather = None
 
-    if api_key:
-        # طلب الطقس
-        url = f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid={api_key}&units=metric"
+        if api_key:
+            url = f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid={api_key}&units=metric"
 
-        try:
-            response = requests.get(url, timeout=5)
+            try:
+                response = requests.get(url, timeout=5)
 
-            if response.status_code == 200:
-                data = response.json()
-                weather = {
-                    "temp": data["main"]["temp"],
-                    "description": data["weather"][0]["description"],
-                    "wind": data["wind"]["speed"],
-                }
-        except Exception:
-            weather = None
+                if response.status_code == 200:
+                    data = response.json()
 
-    return render_template(
-        "city.html", city=city_data, city_name=name, weather=weather, hotels=city_hotels
-    )
+                    weather = {
+                        "temp": data["main"]["temp"],
+                        "description": data["weather"][0]["description"],
+                        "wind": data["wind"]["speed"],
+                    }
+
+            except Exception as e:
+                print("WEATHER ERROR =", e)
+
+        return render_template(
+            "city.html",
+            city=city_data,
+            city_name=name,
+            weather=weather,
+            hotels=city_hotels
+        )
+
+    except Exception as e:
+        print("CITY PAGE ERROR =", e)
+        raise
 
 
 # صفحة About
