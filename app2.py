@@ -32,7 +32,7 @@ def home():
 
 
 # صفحة المدينة
-@app.route("/city/<name>")
+@app.route("/city/<path:name>")
 def city(name):
 
     city_data = cities.get(name)
