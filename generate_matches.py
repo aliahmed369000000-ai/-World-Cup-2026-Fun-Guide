@@ -1,3 +1,6 @@
+import sys
+print("⚠️ هذا الملف معطل. استخدم ملف matches.json الرسمي بدلاً من ذلك.")
+sys.exit(0)
 import json
 from datetime import datetime, timedelta
 
