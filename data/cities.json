@@ -1,5 +1,5 @@
 {
-    "New York": {
+    "NewYork": {
         "country": "USA",
         "stadium": "MetLife Stadium",
         "transport": "Subway, NJ Transit and buses",
@@ -18,7 +18,7 @@
             {"name": "Kashmir 9", "type": "Restaurant", "distance": "15 min drive"}
         ]
     },
-    "Mexico City": {
+    "MexicoCity": {
         "country": "Mexico",
         "stadium": "Estadio Azteca",
         "transport": "Metro and buses",
@@ -71,7 +71,7 @@
             {"name": "Anatolia's Gate", "type": "Turkish", "distance": "10 min drive"}
         ]
     },
-    "Los Angeles": {
+    "LosAngeles": {
         "country": "USA",
         "stadium": "SoFi Stadium",
         "transport": "Metro and Uber",
@@ -208,7 +208,7 @@
             {"name": "Al Aseel Grill", "type": "Mediterranean", "distance": "8 min drive"}
         ]
     },
-    "Kansas City": {
+    "KansasCity": {
         "country": "USA",
         "stadium": "Arrowhead Stadium",
         "transport": "Cars and buses",
@@ -225,7 +225,7 @@
             {"name": "Habashi House", "type": "Mediterranean", "distance": "12 min drive"}
         ]
     },
-    "San Francisco Bay Area": {
+    "SanFrancisco": {
         "country": "USA",
         "stadium": "Levi's Stadium",
         "transport": "BART and trains",
