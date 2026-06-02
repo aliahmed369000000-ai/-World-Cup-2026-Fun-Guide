@@ -101,14 +101,14 @@
 
         <div class="cities-grid">
             {% for city in cities %}
-            <a href="{{ url_for('city', name=city) }}" class="city-card">
-                <img src="{{ cities[city].image }}" alt="{{ city }}">
-                <div class="overlay">
-                    <h3>{{ city }}</h3>
-                    <p>{{ cities[city].country }}</p>
-                </div>
-            </a>
-            {% endfor %}
+<a href="{{ url_for('city', name=city) }}" class="city-card">
+    <img src="{{ cities[city].image }}" alt="{{ city }}">
+    <div class="overlay">
+        <h3>{{ city }}</h3>
+        <p>{{ cities[city].country }}</p>
+    </div>
+</a>
+{% endfor %}
         </div>
 
         <!-- Travel Essentials -->
