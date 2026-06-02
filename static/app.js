@@ -3,12 +3,12 @@ const btn = document.getElementById('dark-mode-toggle');
 if (btn) {
     btn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode'));
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 }
 
 // Countdown
-const countDate = new Date('June 11, 2026 00:00:00').getTime();
+const countDate = new Date("June 11, 2026 00:00:00").getTime();
 setInterval(() => {
     let now = new Date().getTime();
     let gap = countDate - now;
@@ -17,21 +17,33 @@ setInterval(() => {
         let hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((gap % (1000 * 60)) / 1000);
-        
-        const countdownElement = document.getElementById('countdown');
-        if (countdownElement) {
-            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        const countdownEl = document.getElementById('countdown');
+        if (countdownEl) {
+            countdownEl.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
     }
 }, 1000);
 
-// Global variables
+// Favorites logic for hotels
+function toggleFav(hotel) {
+    let favs = JSON.parse(localStorage.getItem('favHotels') || '[]');
+    if (favs.includes(hotel)) {
+        favs = favs.filter(h => h !== hotel);
+        alert(hotel + " removed from favorites!");
+    } else {
+        favs.push(hotel);
+        alert(hotel + " added to favorites!");
+    }
+    localStorage.setItem('favHotels', JSON.stringify(favs));
+}
+
+// ========== MATCHES LOAD MORE LOGIC ==========
 let allMatches = [];
 let currentMatchCount = 8;
-let matchesContainer = document.getElementById('matchesContainer');
+const matchesContainer = document.getElementById('matchesContainer');
 
-// Fetch matches from Flask API
-fetch('/api/matches')
+// Fetch matches from JSON file
+fetch('/data/matches.json')
     .then(response => response.json())
     .then(data => {
         allMatches = data;
@@ -41,11 +53,10 @@ fetch('/api/matches')
     .catch(error => {
         console.error('Error loading matches:', error);
         if (matchesContainer) {
-            matchesContainer.innerHTML = '<p style="color: red; text-align: center;">Error loading matches. Please refresh the page.</p>';
+            matchesContainer.innerHTML = '<p style="color: red; text-align: center;">❌ Error loading matches. Please refresh the page.</p>';
         }
     });
 
-// Function to display matches
 function displayMatches(limit) {
     if (!matchesContainer) return;
     
@@ -54,24 +65,26 @@ function displayMatches(limit) {
     
     for (let i = 0; i < displayLimit; i++) {
         const match = allMatches[i];
-        const matchDate = match.date.split('T')[0];
+        const matchDate = match.date ? match.date.split('T')[0] : match.date;
         
         matchesHtml += `
-            <div class="match-card">
+            <div class="match-card-large">
                 <div class="match-teams">
-                    <div class="team">
-                        <span class="team-name">${escapeHtml(match.team1)}</span>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 32px; margin-bottom: 8px;">🏳️</div>
+                        <h3>${escapeHtml(match.team1)}</h3>
                     </div>
-                    <div class="vs">VS</div>
-                    <div class="team">
-                        <span class="team-name">${escapeHtml(match.team2)}</span>
+                    <div style="font-size: 24px; font-weight: 700; color: #fbbf24;">VS</div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 32px; margin-bottom: 8px;">🏳️</div>
+                        <h3>${escapeHtml(match.team2)}</h3>
                     </div>
                 </div>
                 <div class="match-info">
                     <div class="match-time">🕐 ${match.time}</div>
                     <div class="match-date">📅 ${matchDate}</div>
                     <div class="match-stadium">🏟 ${escapeHtml(match.stadium)}</div>
-                    <div class="match-city">📍 ${escapeHtml(match.city)}</div>
+                    <div style="font-size: 12px; opacity: 0.7; margin-top: 5px;">📍 ${escapeHtml(match.city)}</div>
                 </div>
                 <button class="remind-btn" onclick="remindMe('${escapeHtml(match.team1)}', '${escapeHtml(match.team2)}')">🔔 Remind Me</button>
             </div>
@@ -81,7 +94,50 @@ function displayMatches(limit) {
     matchesContainer.innerHTML = matchesHtml;
 }
 
-// Helper function to prevent XSS
+function setupLoadMoreButton() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (!loadMoreBtn) return;
+    
+    // Remove any existing listener to avoid duplicates
+    const newBtn = loadMoreBtn.cloneNode(true);
+    loadMoreBtn.parentNode.replaceChild(newBtn, loadMoreBtn);
+    
+    newBtn.addEventListener('click', () => {
+        const newLimit = currentMatchCount + 8;
+        
+        if (newLimit >= allMatches.length) {
+            displayMatches(allMatches.length);
+            newBtn.textContent = '✓ All Matches Loaded';
+            newBtn.disabled = true;
+            newBtn.style.opacity = '0.5';
+            newBtn.style.cursor = 'not-allowed';
+        } else {
+            currentMatchCount = newLimit;
+            displayMatches(currentMatchCount);
+            const remaining = allMatches.length - currentMatchCount;
+            newBtn.textContent = `Load More Matches (${remaining} more)`;
+        }
+    });
+    
+    // Update button ID reference
+    newBtn.id = 'loadMoreBtn';
+}
+
+function remindMe(team1, team2) {
+    // Request notification permission
+    if (Notification.permission === "granted") {
+        new Notification("⚽ Match Reminder", { body: `${team1} vs ${team2} starts soon!` });
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                new Notification("⚽ Match Reminder", { body: `${team1} vs ${team2} starts soon!` });
+            }
+        });
+    } else {
+        alert(`🔔 Reminder set for ${team1} vs ${team2}!`);
+    }
+}
+
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, function(m) {
@@ -92,49 +148,8 @@ function escapeHtml(str) {
     });
 }
 
-// Function to setup load more button
-function setupLoadMoreButton() {
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (!loadMoreBtn) return;
-    
-    loadMoreBtn.addEventListener('click', () => {
-        const newLimit = currentMatchCount + 8;
-        
-        if (newLimit >= allMatches.length) {
-            displayMatches(allMatches.length);
-            loadMoreBtn.textContent = '✓ All Matches Loaded';
-            loadMoreBtn.disabled = true;
-            loadMoreBtn.style.opacity = '0.5';
-            loadMoreBtn.style.cursor = 'not-allowed';
-        } else {
-            currentMatchCount = newLimit;
-            displayMatches(currentMatchCount);
-            const remaining = allMatches.length - currentMatchCount;
-            loadMoreBtn.textContent = `Load More Matches (${remaining} remaining)`;
-        }
-    });
-}
-
-// Remind Me function
-function remindMe(team1, team2) {
-    alert(`🔔 Reminder set for ${team1} vs ${team2}!`);
-}
-
-// Favorites logic for hotels
-function toggleFavs(hotel) {
-    let favs = JSON.parse(localStorage.getItem('favs') || '[]');
-    if (favs.includes(hotel)) {
-        favs = favs.filter(h => h !== hotel);
-        alert(`${hotel} removed from favorites!`);
-    } else {
-        favs.push(hotel);
-        alert(`${hotel} added to favorites!`);
-    }
-    localStorage.setItem('favs', JSON.stringify(favs));
-}
-
 // Load saved theme
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'true') {
+if (savedTheme === 'dark') {
     document.body.classList.add('dark-mode');
 }
