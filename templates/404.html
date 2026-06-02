@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — World Cup 2026 Fan Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="nav-logo">⚽ <span>WC</span>2026</a>
+    </div>
+</nav>
+<div class="container" style="text-align:center;padding-top:80px;">
+    <div style="font-size:100px;margin-bottom:20px;">⚽</div>
+    <h1 style="font-family:var(--font-display);font-size:72px;letter-spacing:3px;color:var(--primary);">404</h1>
+    <h2 style="font-family:var(--font-display);font-size:32px;letter-spacing:1px;margin-bottom:16px;">PAGE NOT FOUND</h2>
+    <p style="color:var(--text-muted);font-size:16px;margin-bottom:32px;">Looks like this page went offside.<br>Head back to the main pitch.</p>
+    <a href="/" class="btn btn-primary btn-lg">← Back to Home</a>
+</div>
+{% include "footer.html" %}
+<script>
+if (localStorage.getItem("darkMode") === "enabled") document.body.classList.add("dark-mode");
+</script>
+</body>
+</html>
