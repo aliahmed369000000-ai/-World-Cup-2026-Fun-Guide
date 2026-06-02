@@ -1,834 +1,578 @@
 [
     {
-        "team1": "Argentina",
-        "team2": "USA",
+        "team1": "Mexico",
+        "team2": "South Africa",
+        "time": "01:00 PM",
+        "date": "2026-06-11T13:00:00",
+        "city": "Mexico City",
+        "stadium": "Mexico City Stadium"
+    },
+    {
+        "team1": "Korea Republic",
+        "team2": "Czechia",
         "time": "06:00 PM",
         "date": "2026-06-11T18:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Brazil",
-        "team2": "Mexico",
-        "time": "11:00 PM",
-        "date": "2026-06-11T23:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "France",
-        "team2": "Canada",
-        "time": "04:00 AM",
-        "date": "2026-06-12T04:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Germany",
-        "team2": "Japan",
-        "time": "09:00 AM",
-        "date": "2026-06-12T09:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Spain",
-        "team2": "South Korea",
-        "time": "02:00 PM",
-        "date": "2026-06-12T14:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Portugal",
-        "team2": "Morocco",
-        "time": "07:00 PM",
-        "date": "2026-06-12T19:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "England",
-        "team2": "Saudi Arabia",
-        "time": "12:00 AM",
-        "date": "2026-06-13T00:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "USA",
-        "team2": "Netherlands",
-        "time": "05:00 AM",
-        "date": "2026-06-13T05:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Mexico",
-        "team2": "Belgium",
-        "time": "10:00 AM",
-        "date": "2026-06-13T10:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
+        "city": "Guadalajara",
+        "stadium": "Guadalajara Stadium"
     },
     {
         "team1": "Canada",
-        "team2": "Croatia",
+        "team2": "Bosnia and Herzegovina",
+        "time": "03:00 PM",
+        "date": "2026-06-12T15:00:00",
+        "city": "Toronto",
+        "stadium": "Toronto Stadium"
+    },
+    {
+        "team1": "USA",
+        "team2": "Paraguay",
+        "time": "06:00 PM",
+        "date": "2026-06-12T18:00:00",
+        "city": "Los Angeles",
+        "stadium": "Los Angeles Stadium"
+    },
+    {
+        "team1": "Qatar",
+        "team2": "Switzerland",
         "time": "03:00 PM",
         "date": "2026-06-13T15:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Japan",
-        "team2": "Uruguay",
-        "time": "08:00 PM",
-        "date": "2026-06-13T20:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "South Korea",
-        "team2": "Senegal",
-        "time": "01:00 AM",
-        "date": "2026-06-14T01:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Morocco",
-        "team2": "Switzerland",
-        "time": "06:00 AM",
-        "date": "2026-06-14T06:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Saudi Arabia",
-        "team2": "Denmark",
-        "time": "11:00 AM",
-        "date": "2026-06-14T11:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Netherlands",
-        "team2": "Poland",
-        "time": "04:00 PM",
-        "date": "2026-06-14T16:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Belgium",
-        "team2": "Serbia",
-        "time": "09:00 PM",
-        "date": "2026-06-14T21:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Croatia",
-        "team2": "Turkey",
-        "time": "02:00 AM",
-        "date": "2026-06-15T02:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Uruguay",
-        "team2": "Egypt",
-        "time": "07:00 AM",
-        "date": "2026-06-15T07:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Senegal",
-        "team2": "Algeria",
-        "time": "12:00 PM",
-        "date": "2026-06-15T12:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Switzerland",
-        "team2": "Tunisia",
-        "time": "05:00 PM",
-        "date": "2026-06-15T17:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Denmark",
-        "team2": "Nigeria",
-        "time": "10:00 PM",
-        "date": "2026-06-15T22:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Poland",
-        "team2": "Cameroon",
-        "time": "03:00 AM",
-        "date": "2026-06-16T03:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Serbia",
-        "team2": "Ghana",
-        "time": "08:00 AM",
-        "date": "2026-06-16T08:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Turkey",
-        "team2": "Ivory Coast",
-        "time": "01:00 PM",
-        "date": "2026-06-16T13:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Egypt",
-        "team2": "Chile",
-        "time": "06:00 PM",
-        "date": "2026-06-16T18:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Algeria",
-        "team2": "Colombia",
-        "time": "11:00 PM",
-        "date": "2026-06-16T23:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Tunisia",
-        "team2": "Peru",
-        "time": "04:00 AM",
-        "date": "2026-06-17T04:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Nigeria",
-        "team2": "Ecuador",
-        "time": "09:00 AM",
-        "date": "2026-06-17T09:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Cameroon",
-        "team2": "Paraguay",
-        "time": "02:00 PM",
-        "date": "2026-06-17T14:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Ghana",
-        "team2": "Australia",
-        "time": "07:00 PM",
-        "date": "2026-06-17T19:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Ivory Coast",
-        "team2": "New Zealand",
-        "time": "12:00 AM",
-        "date": "2026-06-18T00:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Chile",
-        "team2": "Iran",
-        "time": "05:00 AM",
-        "date": "2026-06-18T05:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Colombia",
-        "team2": "Iraq",
-        "time": "10:00 AM",
-        "date": "2026-06-18T10:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Peru",
-        "team2": "Qatar",
-        "time": "03:00 PM",
-        "date": "2026-06-18T15:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Ecuador",
-        "team2": "UAE",
-        "time": "08:00 PM",
-        "date": "2026-06-18T20:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Paraguay",
-        "team2": "Austria",
-        "time": "01:00 AM",
-        "date": "2026-06-19T01:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Australia",
-        "team2": "Sweden",
-        "time": "06:00 AM",
-        "date": "2026-06-19T06:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "New Zealand",
-        "team2": "Norway",
-        "time": "11:00 AM",
-        "date": "2026-06-19T11:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Iran",
-        "team2": "Scotland",
-        "time": "04:00 PM",
-        "date": "2026-06-19T16:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Iraq",
-        "team2": "Wales",
-        "time": "09:00 PM",
-        "date": "2026-06-19T21:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Qatar",
-        "team2": "Czech Republic",
-        "time": "02:00 AM",
-        "date": "2026-06-20T02:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "UAE",
-        "team2": "Argentina",
-        "time": "07:00 AM",
-        "date": "2026-06-20T07:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Austria",
-        "team2": "Brazil",
-        "time": "12:00 PM",
-        "date": "2026-06-20T12:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Sweden",
-        "team2": "France",
-        "time": "05:00 PM",
-        "date": "2026-06-20T17:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Norway",
-        "team2": "Germany",
-        "time": "10:00 PM",
-        "date": "2026-06-20T22:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Scotland",
-        "team2": "Spain",
-        "time": "03:00 AM",
-        "date": "2026-06-21T03:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Wales",
-        "team2": "Portugal",
-        "time": "08:00 AM",
-        "date": "2026-06-21T08:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Czech Republic",
-        "team2": "England",
-        "time": "01:00 PM",
-        "date": "2026-06-21T13:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Argentina",
-        "team2": "USA",
-        "time": "06:00 PM",
-        "date": "2026-06-21T18:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
+        "city": "San Francisco Bay Area",
+        "stadium": "San Francisco Bay Area Stadium"
     },
     {
         "team1": "Brazil",
-        "team2": "Mexico",
-        "time": "11:00 PM",
-        "date": "2026-06-21T23:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
+        "team2": "Morocco",
+        "time": "06:00 PM",
+        "date": "2026-06-13T18:00:00",
+        "city": "New York",
+        "stadium": "New York New Jersey Stadium"
     },
     {
-        "team1": "France",
-        "team2": "Canada",
-        "time": "04:00 AM",
-        "date": "2026-06-22T04:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
+        "team1": "Haiti",
+        "team2": "Scotland",
+        "time": "01:00 PM",
+        "date": "2026-06-13T13:00:00",
+        "city": "Boston",
+        "stadium": "Boston Stadium"
+    },
+    {
+        "team1": "Australia",
+        "team2": "Turkiye",
+        "time": "12:00 PM",
+        "date": "2026-06-13T12:00:00",
+        "city": "Vancouver",
+        "stadium": "BC Place Vancouver"
     },
     {
         "team1": "Germany",
+        "team2": "Curacao",
+        "time": "12:00 PM",
+        "date": "2026-06-14T12:00:00",
+        "city": "Houston",
+        "stadium": "Houston Stadium"
+    },
+    {
+        "team1": "Netherlands",
         "team2": "Japan",
-        "time": "09:00 AM",
-        "date": "2026-06-22T09:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
+        "time": "01:00 PM",
+        "date": "2026-06-14T13:00:00",
+        "city": "Dallas",
+        "stadium": "Dallas Stadium"
+    },
+    {
+        "team1": "Côte d'Ivoire",
+        "team2": "Ecuador",
+        "time": "02:00 PM",
+        "date": "2026-06-14T14:00:00",
+        "city": "Philadelphia",
+        "stadium": "Philadelphia Stadium"
+    },
+    {
+        "team1": "Sweden",
+        "team2": "Tunisia",
+        "time": "04:00 PM",
+        "date": "2026-06-14T16:00:00",
+        "city": "Monterrey",
+        "stadium": "Monterrey Stadium"
     },
     {
         "team1": "Spain",
-        "team2": "South Korea",
-        "time": "02:00 PM",
-        "date": "2026-06-22T14:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
+        "team2": "Cabo Verde",
+        "time": "12:00 PM",
+        "date": "2026-06-15T12:00:00",
+        "city": "Atlanta",
+        "stadium": "Atlanta Stadium"
+    },
+    {
+        "team1": "Belgium",
+        "team2": "Egypt",
+        "time": "03:00 PM",
+        "date": "2026-06-15T15:00:00",
+        "city": "Seattle",
+        "stadium": "Seattle Stadium"
+    },
+    {
+        "team1": "Saudi Arabia",
+        "team2": "Uruguay",
+        "time": "06:00 PM",
+        "date": "2026-06-15T18:00:00",
+        "city": "Miami",
+        "stadium": "Miami Stadium"
+    },
+    {
+        "team1": "IR Iran",
+        "team2": "New Zealand",
+        "time": "07:00 PM",
+        "date": "2026-06-15T19:00:00",
+        "city": "Los Angeles",
+        "stadium": "Los Angeles Stadium"
+    },
+    {
+        "team1": "France",
+        "team2": "Senegal",
+        "time": "03:00 PM",
+        "date": "2026-06-16T15:00:00",
+        "city": "New York",
+        "stadium": "New York New Jersey Stadium"
+    },
+    {
+        "team1": "Iraq",
+        "team2": "Norway",
+        "time": "06:00 PM",
+        "date": "2026-06-16T18:00:00",
+        "city": "Boston",
+        "stadium": "Boston Stadium"
+    },
+    {
+        "team1": "Argentina",
+        "team2": "Algeria",
+        "time": "12:00 PM",
+        "date": "2026-06-16T12:00:00",
+        "city": "Kansas City",
+        "stadium": "Kansas City Stadium"
+    },
+    {
+        "team1": "Austria",
+        "team2": "Jordan",
+        "time": "09:00 PM",
+        "date": "2026-06-16T21:00:00",
+        "city": "San Francisco Bay Area",
+        "stadium": "San Francisco Bay Area Stadium"
     },
     {
         "team1": "Portugal",
-        "team2": "Morocco",
-        "time": "07:00 PM",
-        "date": "2026-06-22T19:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
+        "team2": "Congo DR",
+        "time": "01:00 PM",
+        "date": "2026-06-17T13:00:00",
+        "city": "Houston",
+        "stadium": "Houston Stadium"
     },
     {
         "team1": "England",
-        "team2": "Saudi Arabia",
-        "time": "12:00 AM",
-        "date": "2026-06-23T00:00:00",
+        "team2": "Croatia",
+        "time": "03:00 PM",
+        "date": "2026-06-17T15:00:00",
+        "city": "Dallas",
+        "stadium": "Dallas Stadium"
+    },
+    {
+        "team1": "Ghana",
+        "team2": "Panama",
+        "time": "01:00 PM",
+        "date": "2026-06-17T13:00:00",
+        "city": "Toronto",
+        "stadium": "Toronto Stadium"
+    },
+    {
+        "team1": "Uzbekistan",
+        "team2": "Colombia",
+        "time": "04:00 PM",
+        "date": "2026-06-17T16:00:00",
+        "city": "Mexico City",
+        "stadium": "Mexico City Stadium"
+    },
+    {
+        "team1": "Czechia",
+        "team2": "South Africa",
+        "time": "12:00 PM",
+        "date": "2026-06-18T12:00:00",
         "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
+        "stadium": "Atlanta Stadium"
     },
     {
-        "team1": "USA",
-        "team2": "Netherlands",
-        "time": "05:00 AM",
-        "date": "2026-06-23T05:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Mexico",
-        "team2": "Belgium",
-        "time": "10:00 AM",
-        "date": "2026-06-23T10:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
+        "team1": "Switzerland",
+        "team2": "Bosnia and Herzegovina",
+        "time": "03:00 PM",
+        "date": "2026-06-18T15:00:00",
+        "city": "Los Angeles",
+        "stadium": "Los Angeles Stadium"
     },
     {
         "team1": "Canada",
-        "team2": "Croatia",
-        "time": "03:00 PM",
-        "date": "2026-06-23T15:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Japan",
-        "team2": "Uruguay",
-        "time": "08:00 PM",
-        "date": "2026-06-23T20:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "South Korea",
-        "team2": "Senegal",
-        "time": "01:00 AM",
-        "date": "2026-06-24T01:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Morocco",
-        "team2": "Switzerland",
-        "time": "06:00 AM",
-        "date": "2026-06-24T06:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Saudi Arabia",
-        "team2": "Denmark",
-        "time": "11:00 AM",
-        "date": "2026-06-24T11:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Netherlands",
-        "team2": "Poland",
-        "time": "04:00 PM",
-        "date": "2026-06-24T16:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Belgium",
-        "team2": "Serbia",
-        "time": "09:00 PM",
-        "date": "2026-06-24T21:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Croatia",
-        "team2": "Turkey",
-        "time": "02:00 AM",
-        "date": "2026-06-25T02:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Uruguay",
-        "team2": "Egypt",
-        "time": "07:00 AM",
-        "date": "2026-06-25T07:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Senegal",
-        "team2": "Algeria",
-        "time": "12:00 PM",
-        "date": "2026-06-25T12:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Switzerland",
-        "team2": "Tunisia",
-        "time": "05:00 PM",
-        "date": "2026-06-25T17:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Denmark",
-        "team2": "Nigeria",
-        "time": "10:00 PM",
-        "date": "2026-06-25T22:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Poland",
-        "team2": "Cameroon",
-        "time": "03:00 AM",
-        "date": "2026-06-26T03:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Serbia",
-        "team2": "Ghana",
-        "time": "08:00 AM",
-        "date": "2026-06-26T08:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Turkey",
-        "team2": "Ivory Coast",
-        "time": "01:00 PM",
-        "date": "2026-06-26T13:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Egypt",
-        "team2": "Chile",
-        "time": "06:00 PM",
-        "date": "2026-06-26T18:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Algeria",
-        "team2": "Colombia",
-        "time": "11:00 PM",
-        "date": "2026-06-26T23:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Tunisia",
-        "team2": "Peru",
-        "time": "04:00 AM",
-        "date": "2026-06-27T04:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Nigeria",
-        "team2": "Ecuador",
-        "time": "09:00 AM",
-        "date": "2026-06-27T09:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Cameroon",
-        "team2": "Paraguay",
-        "time": "02:00 PM",
-        "date": "2026-06-27T14:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Ghana",
-        "team2": "Australia",
-        "time": "07:00 PM",
-        "date": "2026-06-27T19:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Ivory Coast",
-        "team2": "New Zealand",
-        "time": "12:00 AM",
-        "date": "2026-06-28T00:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Chile",
-        "team2": "Iran",
-        "time": "05:00 AM",
-        "date": "2026-06-28T05:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Colombia",
-        "team2": "Iraq",
-        "time": "10:00 AM",
-        "date": "2026-06-28T10:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "Peru",
         "team2": "Qatar",
-        "time": "03:00 PM",
-        "date": "2026-06-28T15:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Ecuador",
-        "team2": "UAE",
-        "time": "08:00 PM",
-        "date": "2026-06-28T20:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Paraguay",
-        "team2": "Austria",
-        "time": "01:00 AM",
-        "date": "2026-06-29T01:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Australia",
-        "team2": "Sweden",
-        "time": "06:00 AM",
-        "date": "2026-06-29T06:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "New Zealand",
-        "team2": "Norway",
-        "time": "11:00 AM",
-        "date": "2026-06-29T11:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Iran",
-        "team2": "Scotland",
-        "time": "04:00 PM",
-        "date": "2026-06-29T16:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Iraq",
-        "team2": "Wales",
-        "time": "09:00 PM",
-        "date": "2026-06-29T21:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Qatar",
-        "team2": "Czech Republic",
-        "time": "02:00 AM",
-        "date": "2026-06-30T02:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
-    },
-    {
-        "team1": "UAE",
-        "team2": "Argentina",
-        "time": "07:00 AM",
-        "date": "2026-06-30T07:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "Austria",
-        "team2": "Brazil",
-        "time": "12:00 PM",
-        "date": "2026-06-30T12:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Sweden",
-        "team2": "France",
-        "time": "05:00 PM",
-        "date": "2026-06-30T17:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Norway",
-        "team2": "Germany",
-        "time": "10:00 PM",
-        "date": "2026-06-30T22:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Scotland",
-        "team2": "Spain",
-        "time": "03:00 AM",
-        "date": "2026-07-01T03:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "Wales",
-        "team2": "Portugal",
-        "time": "08:00 AM",
-        "date": "2026-07-01T08:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-        "team1": "Czech Republic",
-        "team2": "England",
-        "time": "01:00 PM",
-        "date": "2026-07-01T13:00:00",
-        "city": "Vancouver",
-        "stadium": "BC Place"
-    },
-    {
-        "team1": "Argentina",
-        "team2": "USA",
         "time": "06:00 PM",
-        "date": "2026-07-01T18:00:00",
-        "city": "New York",
-        "stadium": "MetLife Stadium"
+        "date": "2026-06-18T18:00:00",
+        "city": "Vancouver",
+        "stadium": "BC Place Vancouver"
     },
     {
-        "team1": "Brazil",
-        "team2": "Mexico",
-        "time": "11:00 PM",
-        "date": "2026-07-01T23:00:00",
-        "city": "Toronto",
-        "stadium": "BMO Field"
-    },
-    {
-        "team1": "France",
-        "team2": "Canada",
-        "time": "04:00 AM",
-        "date": "2026-07-02T04:00:00",
-        "city": "Mexico City",
-        "stadium": "Azteca Stadium"
-    },
-    {
-        "team1": "Germany",
-        "team2": "Japan",
-        "time": "09:00 AM",
-        "date": "2026-07-02T09:00:00",
-        "city": "Los Angeles",
-        "stadium": "SoFi Stadium"
-    },
-    {
-        "team1": "Spain",
-        "team2": "South Korea",
-        "time": "02:00 PM",
-        "date": "2026-07-02T14:00:00",
-        "city": "Dallas",
-        "stadium": "AT&T Stadium"
-    },
-    {
-        "team1": "Portugal",
-        "team2": "Morocco",
-        "time": "07:00 PM",
-        "date": "2026-07-02T19:00:00",
-        "city": "Miami",
-        "stadium": "Hard Rock Stadium"
-    },
-    {
-        "team1": "England",
-        "team2": "Saudi Arabia",
-        "time": "12:00 AM",
-        "date": "2026-07-03T00:00:00",
-        "city": "Atlanta",
-        "stadium": "Mercedes-Benz Stadium"
+        "team1": "Mexico",
+        "team2": "Korea Republic",
+        "time": "09:00 PM",
+        "date": "2026-06-18T21:00:00",
+        "city": "Guadalajara",
+        "stadium": "Guadalajara Stadium"
     },
     {
         "team1": "USA",
-        "team2": "Netherlands",
-        "time": "05:00 AM",
-        "date": "2026-07-03T05:00:00",
+        "team2": "Australia",
+        "time": "02:00 PM",
+        "date": "2026-06-19T14:00:00",
+        "city": "Seattle",
+        "stadium": "Seattle Stadium"
+    },
+    {
+        "team1": "Scotland",
+        "team2": "Morocco",
+        "time": "01:00 PM",
+        "date": "2026-06-19T13:00:00",
+        "city": "Boston",
+        "stadium": "Boston Stadium"
+    },
+    {
+        "team1": "Brazil",
+        "team2": "Haiti",
+        "time": "03:00 PM",
+        "date": "2026-06-19T15:00:00",
+        "city": "Philadelphia",
+        "stadium": "Philadelphia Stadium"
+    },
+    {
+        "team1": "Turkiye",
+        "team2": "Paraguay",
+        "time": "09:00 PM",
+        "date": "2026-06-19T21:00:00",
+        "city": "San Francisco Bay Area",
+        "stadium": "San Francisco Bay Area Stadium"
+    },
+    {
+        "team1": "Netherlands",
+        "team2": "Sweden",
+        "time": "01:00 PM",
+        "date": "2026-06-20T13:00:00",
+        "city": "Houston",
+        "stadium": "Houston Stadium"
+    },
+    {
+        "team1": "Germany",
+        "team2": "Côte d'Ivoire",
+        "time": "04:00 PM",
+        "date": "2026-06-20T16:00:00",
+        "city": "Toronto",
+        "stadium": "Toronto Stadium"
+    },
+    {
+        "team1": "Ecuador",
+        "team2": "Curacao",
+        "time": "01:00 PM",
+        "date": "2026-06-20T13:00:00",
+        "city": "Kansas City",
+        "stadium": "Kansas City Stadium"
+    },
+    {
+        "team1": "Tunisia",
+        "team2": "Japan",
+        "time": "10:00 PM",
+        "date": "2026-06-20T22:00:00",
+        "city": "Monterrey",
+        "stadium": "Monterrey Stadium"
+    },
+    {
+        "team1": "Spain",
+        "team2": "Saudi Arabia",
+        "time": "12:00 PM",
+        "date": "2026-06-21T12:00:00",
+        "city": "Atlanta",
+        "stadium": "Atlanta Stadium"
+    },
+    {
+        "team1": "Belgium",
+        "team2": "IR Iran",
+        "time": "02:00 PM",
+        "date": "2026-06-21T14:00:00",
+        "city": "Los Angeles",
+        "stadium": "Los Angeles Stadium"
+    },
+    {
+        "team1": "Uruguay",
+        "team2": "Cabo Verde",
+        "time": "04:00 PM",
+        "date": "2026-06-21T16:00:00",
+        "city": "Miami",
+        "stadium": "Miami Stadium"
+    },
+    {
+        "team1": "New Zealand",
+        "team2": "Egypt",
+        "time": "07:00 PM",
+        "date": "2026-06-21T19:00:00",
         "city": "Vancouver",
-        "stadium": "BC Place"
+        "stadium": "BC Place Vancouver"
+    },
+    {
+        "team1": "Argentina",
+        "team2": "Austria",
+        "time": "03:00 PM",
+        "date": "2026-06-22T15:00:00",
+        "city": "Dallas",
+        "stadium": "Dallas Stadium"
+    },
+    {
+        "team1": "France",
+        "team2": "Iraq",
+        "time": "01:00 PM",
+        "date": "2026-06-22T13:00:00",
+        "city": "Philadelphia",
+        "stadium": "Philadelphia Stadium"
+    },
+    {
+        "team1": "Norway",
+        "team2": "Senegal",
+        "time": "12:00 PM",
+        "date": "2026-06-22T12:00:00",
+        "city": "New York",
+        "stadium": "New York New Jersey Stadium"
+    },
+    {
+        "team1": "Jordan",
+        "team2": "Algeria",
+        "time": "07:00 PM",
+        "date": "2026-06-22T19:00:00",
+        "city": "San Francisco Bay Area",
+        "stadium": "San Francisco Bay Area Stadium"
+    },
+    {
+        "team1": "Portugal",
+        "team2": "Uzbekistan",
+        "time": "12:00 PM",
+        "date": "2026-06-23T12:00:00",
+        "city": "Houston",
+        "stadium": "Houston Stadium"
+    },
+    {
+        "team1": "England",
+        "team2": "Ghana",
+        "time": "02:00 PM",
+        "date": "2026-06-23T14:00:00",
+        "city": "Boston",
+        "stadium": "Boston Stadium"
+    },
+    {
+        "team1": "Panama",
+        "team2": "Croatia",
+        "time": "12:00 PM",
+        "date": "2026-06-23T12:00:00",
+        "city": "Toronto",
+        "stadium": "Toronto Stadium"
+    },
+    {
+        "team1": "Colombia",
+        "team2": "Congo DR",
+        "time": "05:00 PM",
+        "date": "2026-06-23T17:00:00",
+        "city": "Guadalajara",
+        "stadium": "Guadalajara Stadium"
+    },
+    {
+        "team1": "Switzerland",
+        "team2": "Canada",
+        "time": "12:00 PM",
+        "date": "2026-06-24T12:00:00",
+        "city": "Vancouver",
+        "stadium": "BC Place Vancouver"
+    },
+    {
+        "team1": "Bosnia and Herzegovina",
+        "team2": "Qatar",
+        "time": "03:00 PM",
+        "date": "2026-06-24T15:00:00",
+        "city": "Seattle",
+        "stadium": "Seattle Stadium"
+    },
+    {
+        "team1": "Scotland",
+        "team2": "Brazil",
+        "time": "03:00 PM",
+        "date": "2026-06-24T15:00:00",
+        "city": "Miami",
+        "stadium": "Miami Stadium"
+    },
+    {
+        "team1": "Morocco",
+        "team2": "Haiti",
+        "time": "03:00 PM",
+        "date": "2026-06-24T15:00:00",
+        "city": "Atlanta",
+        "stadium": "Atlanta Stadium"
+    },
+    {
+        "team1": "Czechia",
+        "team2": "Mexico",
+        "time": "07:00 PM",
+        "date": "2026-06-24T19:00:00",
+        "city": "Mexico City",
+        "stadium": "Mexico City Stadium"
+    },
+    {
+        "team1": "South Africa",
+        "team2": "Korea Republic",
+        "time": "07:00 PM",
+        "date": "2026-06-24T19:00:00",
+        "city": "Monterrey",
+        "stadium": "Monterrey Stadium"
+    },
+    {
+        "team1": "Curacao",
+        "team2": "Côte d'Ivoire",
+        "time": "12:00 PM",
+        "date": "2026-06-25T12:00:00",
+        "city": "Philadelphia",
+        "stadium": "Philadelphia Stadium"
+    },
+    {
+        "team1": "Ecuador",
+        "team2": "Germany",
+        "time": "12:00 PM",
+        "date": "2026-06-25T12:00:00",
+        "city": "New York",
+        "stadium": "New York New Jersey Stadium"
+    },
+    {
+        "team1": "Japan",
+        "team2": "Sweden",
+        "time": "03:00 PM",
+        "date": "2026-06-25T15:00:00",
+        "city": "Dallas",
+        "stadium": "Dallas Stadium"
+    },
+    {
+        "team1": "Tunisia",
+        "team2": "Netherlands",
+        "time": "03:00 PM",
+        "date": "2026-06-25T15:00:00",
+        "city": "Kansas City",
+        "stadium": "Kansas City Stadium"
+    },
+    {
+        "team1": "Turkiye",
+        "team2": "USA",
+        "time": "07:00 PM",
+        "date": "2026-06-25T19:00:00",
+        "city": "Los Angeles",
+        "stadium": "Los Angeles Stadium"
+    },
+    {
+        "team1": "Paraguay",
+        "team2": "Australia",
+        "time": "07:00 PM",
+        "date": "2026-06-25T19:00:00",
+        "city": "San Francisco Bay Area",
+        "stadium": "San Francisco Bay Area Stadium"
+    },
+    {
+        "team1": "Norway",
+        "team2": "France",
+        "time": "12:00 PM",
+        "date": "2026-06-26T12:00:00",
+        "city": "Boston",
+        "stadium": "Boston Stadium"
+    },
+    {
+        "team1": "Senegal",
+        "team2": "Iraq",
+        "time": "12:00 PM",
+        "date": "2026-06-26T12:00:00",
+        "city": "Toronto",
+        "stadium": "Toronto Stadium"
+    },
+    {
+        "team1": "Cabo Verde",
+        "team2": "Saudi Arabia",
+        "time": "04:00 PM",
+        "date": "2026-06-26T16:00:00",
+        "city": "Houston",
+        "stadium": "Houston Stadium"
+    },
+    {
+        "team1": "Uruguay",
+        "team2": "Spain",
+        "time": "04:00 PM",
+        "date": "2026-06-26T16:00:00",
+        "city": "Guadalajara",
+        "stadium": "Guadalajara Stadium"
+    },
+    {
+        "team1": "Egypt",
+        "team2": "IR Iran",
+        "time": "07:00 PM",
+        "date": "2026-06-26T19:00:00",
+        "city": "Seattle",
+        "stadium": "Seattle Stadium"
+    },
+    {
+        "team1": "New Zealand",
+        "team2": "Belgium",
+        "time": "07:00 PM",
+        "date": "2026-06-26T19:00:00",
+        "city": "Vancouver",
+        "stadium": "BC Place Vancouver"
+    },
+    {
+        "team1": "Panama",
+        "team2": "England",
+        "time": "12:00 PM",
+        "date": "2026-06-27T12:00:00",
+        "city": "New York",
+        "stadium": "New York New Jersey Stadium"
+    },
+    {
+        "team1": "Croatia",
+        "team2": "Ghana",
+        "time": "12:00 PM",
+        "date": "2026-06-27T12:00:00",
+        "city": "Philadelphia",
+        "stadium": "Philadelphia Stadium"
+    },
+    {
+        "team1": "Colombia",
+        "team2": "Portugal",
+        "time": "04:00 PM",
+        "date": "2026-06-27T16:00:00",
+        "city": "Miami",
+        "stadium": "Miami Stadium"
+    },
+    {
+        "team1": "Congo DR",
+        "team2": "Uzbekistan",
+        "time": "04:00 PM",
+        "date": "2026-06-27T16:00:00",
+        "city": "Atlanta",
+        "stadium": "Atlanta Stadium"
+    },
+    {
+        "team1": "Algeria",
+        "team2": "Austria",
+        "time": "08:00 PM",
+        "date": "2026-06-27T20:00:00",
+        "city": "Kansas City",
+        "stadium": "Kansas City Stadium"
+    },
+    {
+        "team1": "Jordan",
+        "team2": "Argentina",
+        "time": "08:00 PM",
+        "date": "2026-06-27T20:00:00",
+        "city": "Dallas",
+        "stadium": "Dallas Stadium"
     }
 ]
