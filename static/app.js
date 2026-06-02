@@ -22,3 +22,56 @@ function toggleFav(hotel) {
     localStorage.setItem('favHotels', JSON.stringify(favs));
     alert(hotel + " updated in favorites!");
 }
+let allMatches = [];
+let currentMatchCount = 8;
+let matchesContainer = document.getElementById('matchesContainer');
+
+// تحميل البيانات من ملف JSON
+fetch('/data/matches.json')
+    .then(response => response.json())
+    .then(data => {
+        allMatches = data;
+        displayMatches(currentMatchCount);
+        setupLoadMoreButton();
+    })
+    .catch(error => console.error('Error loading matches:', error));
+
+function displayMatches(limit) {
+    let matchesHtml = '';
+    for (let i = 0; i < limit && i < allMatches.length; i++) {
+        const match = allMatches[i];
+        matchesHtml += `
+            <div class="match-card">
+                <div class="teams">
+                    <span class="team">${match.team1}</span>
+                    <span class="vs">VS</span>
+                    <span class="team">${match.team2}</span>
+                </div>
+                <div class="match-details">
+                    <span class="time">${match.time}</span>
+                    <span class="date">${match.date.split('T')[0]}</span>
+                    <span class="stadium">🏟 ${match.stadium}</span>
+                    <span class="city">📍 ${match.city}</span>
+                </div>
+                <button class="remind-btn">🔔 Remind Me</button>
+            </div>
+        `;
+    }
+    matchesContainer.innerHTML = matchesHtml;
+}
+
+function setupLoadMoreButton() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            const newLimit = currentMatchCount + 8;
+            if (newLimit >= allMatches.length) {
+                displayMatches(allMatches.length);
+                loadMoreBtn.style.display = 'none';
+            } else {
+                currentMatchCount = newLimit;
+                displayMatches(currentMatchCount);
+            }
+        });
+    }
+}
