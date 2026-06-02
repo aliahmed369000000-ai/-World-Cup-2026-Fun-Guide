@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import json
 import requests
 import os
-
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -22,6 +22,14 @@ with open("data/hotels.json", encoding="utf-8") as file:
     hotels = json.load(file)
 
 
+
+@app.route('/api/matches')
+def api_matches():
+    """API endpoint for matches data"""
+    import json
+    with open('data/matches.json', 'r', encoding='utf-8') as f:
+        matches = json.load(f)
+    return jsonify(matches)
 # الصفحة الرئيسية
 @app.route("/")
 def home():
