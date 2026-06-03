@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Best Hotels Near World Cup 2026 Stadiums — Where to Stay for FIFA World Cup 2026. Find top-rated hotels close to every host city stadium.">
+    <meta property="og:title" content="Best Hotels Near World Cup 2026 Stadiums">
+    <meta property="og:description" content="Where to Stay for FIFA World Cup 2026 — Recommended hotels near every host city.">
+    <title>Best Hotels Near World Cup 2026 Stadiums — Where to Stay</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.com/NTM1NTc1.js?t=535575';
+      document.head.appendChild(script);
+  })();
+</script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="nav-logo">⚽ <span>WC</span>2026</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/matches" class="nav-link">Matches</a>
+            <a href="/hotels" class="nav-link active">🏨 Hotels</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+        <div class="nav-actions">
+            <button id="darkBtn" class="nav-btn">🌙</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <a href="/" class="back-link">← Back to Home</a>
+
+    <!-- HERO -->
+    <div class="hotels-page-hero animate-up">
+        <div class="hero-badge">🏨 Recommended Hotels</div>
+        <h1>BEST <em>HOTELS</em><br>NEAR STADIUMS</h1>
+        <p>Where to Stay for World Cup 2026 — top picks near every host city stadium</p>
+    </div>
+
+    <!-- BOOKING CTA -->
+    <div class="booking-cta animate-up">
+        <h2>🏆 BOOK EARLY — PRICES ARE RISING</h2>
+        <p>World Cup 2026 hotels sell out fast. Lock in your room now and get the best price for the biggest tournament on Earth.</p>
+        <a href="https://www.booking.com" target="_blank" rel="noopener" class="btn btn-lg">🏨 Compare on Booking.com →</a>
+    </div>
+
+    <!-- CITY FILTER -->
+    <div class="matches-filter" style="margin-bottom:36px;">
+        <button class="filter-btn active" data-country="all">All Cities</button>
+        <button class="filter-btn" data-country="USA">🇺🇸 USA</button>
+        <button class="filter-btn" data-country="Mexico">🇲🇽 Mexico</button>
+        <button class="filter-btn" data-country="Canada">🇨🇦 Canada</button>
+    </div>
+
+    <!-- HOTELS BY CITY -->
+    {% set city_flags = {
+        'New York': '🇺🇸', 'Los Angeles': '🇺🇸', 'Dallas': '🇺🇸', 'Miami': '🇺🇸',
+        'Atlanta': '🇺🇸', 'Seattle': '🇺🇸', 'Boston': '🇺🇸', 'Philadelphia': '🇺🇸',
+        'Houston': '🇺🇸', 'Kansas City': '🇺🇸', 'San Francisco Bay Area': '🇺🇸',
+        'Mexico City': '🇲🇽', 'Monterrey': '🇲🇽', 'Guadalajara': '🇲🇽',
+        'Toronto': '🇨🇦', 'Vancouver': '🇨🇦'
+    } %}
+
+    {% set city_countries = {
+        'New York': 'USA', 'Los Angeles': 'USA', 'Dallas': 'USA', 'Miami': 'USA',
+        'Atlanta': 'USA', 'Seattle': 'USA', 'Boston': 'USA', 'Philadelphia': 'USA',
+        'Houston': 'USA', 'Kansas City': 'USA', 'San Francisco Bay Area': 'USA',
+        'Mexico City': 'Mexico', 'Monterrey': 'Mexico', 'Guadalajara': 'Mexico',
+        'Toronto': 'Canada', 'Vancouver': 'Canada'
+    } %}
+
+    {% for city_name, city_hotels in hotels.items() %}
+    {% if city_hotels %}
+    <div class="hotels-city-section animate-up" data-country="{{ city_countries.get(city_name, 'USA') }}">
+        <div class="hotels-city-header">
+            <div class="city-flag">{{ city_flags.get(city_name, '🌎') }}</div>
+            <h2>{{ city_name }}</h2>
+            {% if cities.get(city_name | replace(' ','')) %}
+            <a href="/city/{{ city_name | replace(' ','') }}">City Guide →</a>
+            {% endif %}
+        </div>
+        {% if cities.get(city_name | replace(' ','')) %}
+        <div style="font-size:13px;color:var(--text-muted);font-weight:600;margin-bottom:16px;">
+            🏟 {{ cities[city_name | replace(' ','')].stadium }}
+        </div>
+        {% endif %}
+        <div class="hotels-grid">
+            {% for hotel in city_hotels %}
+            <div class="hotel-card animate-up">
+                <div class="hotel-img">🏨</div>
+                <div class="hotel-info">
+                    <h4>{{ hotel.name }}</h4>
+                    <div class="hotel-stars">★★★★☆</div>
+                    <div style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">
+                        📍 Near {{ city_name }} Stadium
+                    </div>
+                    <div class="hotel-footer">
+                        <div>
+                            <div class="hotel-price">{{ hotel.price }}</div>
+                            <div class="hotel-night">per night</div>
+                        </div>
+                        <a href="{{ hotel.link }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Book Now →</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <!-- AFFILIATE DISCLOSURE -->
+    <div style="background:rgba(0,0,0,0.03);border-radius:12px;padding:20px 24px;margin-bottom:40px;border:1px solid rgba(0,0,0,0.06);">
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">
+            <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. If you book through them, we may earn a small commission at no extra cost to you. This helps us keep the site free. <a href="/affiliate-disclosure" style="color:var(--primary);">Learn more →</a>
+        </p>
+    </div>
+
+    <div class="ad-box">Advertisement Space</div>
+
+</div>
+
+{% include "footer.html" %}
+
+<script>
+// Dark Mode
+const darkBtn = document.getElementById("darkBtn");
+darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    darkBtn.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+});
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkBtn.textContent = "☀️";
+}
+
+// Country Filter
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        const country = this.dataset.country;
+        document.querySelectorAll(".hotels-city-section").forEach(section => {
+            if (country === "all" || section.dataset.country === country) {
+                section.style.display = "";
+            } else {
+                section.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
