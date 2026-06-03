@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ city_name }} World Cup 2026 Fan Guide — Hotels, halal food, transport, stadium info and match day tips.">
+    <title>{{ city_name }} — World Cup 2026 Fan Guide</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () { var script = document.createElement("script"); script.async = 1; script.src = 'https://emrldtp.com/NTM1NTc1.js?t=535575'; document.head.appendChild(script); })();
+</script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="nav-logo">⚽ <span>WC</span>2026</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/matches" class="nav-link">Matches</a>
+            <a href="/hotels" class="nav-link">🏨 Hotels</a>
+            <a href="/fifa-fan-id" class="nav-link">🪪 Fan ID</a>
+            <a href="/free-tickets" class="nav-link">🎟 Free Tickets</a>
+            <a href="/news" class="nav-link">📰 News</a>
+        </div>
+        <div class="nav-actions">
+            <button id="darkBtn" class="nav-btn">🌙</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <a href="/" class="back-link">← Back to Home</a>
+
+    <!-- CITY HERO -->
+    <div class="city-hero animate-up">
+        <img src="{{ city.image }}" alt="{{ city_name }}">
+        <div class="city-hero-overlay">
+            <div class="city-hero-badges">
+                <span class="badge badge-primary">{{ city.country }}</span>
+                <span class="badge badge-glass">🏟 {{ city.stadium }}</span>
+            </div>
+            <h1 class="city-hero-title">{{ city_name }}</h1>
+            <p class="city-hero-sub">FIFA World Cup 2026 Host City</p>
+        </div>
+        <div class="city-hero-action">
+            <button id="favoriteBtn" class="btn btn-secondary btn-sm">♡ Save City</button>
+        </div>
+    </div>
+
+    <!-- WEATHER -->
+    {% if weather %}
+    <div class="weather-card animate-up">
+        <div class="weather-icon">
+            {% if weather.description and 'rain' in weather.description %}🌧
+            {% elif weather.description and 'cloud' in weather.description %}⛅
+            {% elif weather.description and 'snow' in weather.description %}❄️
+            {% elif weather.description and 'storm' in weather.description %}⛈
+            {% else %}☀️
+            {% endif %}
+        </div>
+        <div>
+            <div class="weather-temp">{{ weather.temp | round | int }}°C</div>
+            <div class="weather-desc">{{ weather.description | title }}</div>
+            <div class="weather-wind">💨 Wind: {{ weather.wind }} m/s</div>
+        </div>
+        <div style="margin-left:auto;text-align:right;">
+            <div style="font-size:13px;opacity:0.6;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Live Weather</div>
+            <div style="font-size:22px;font-weight:700;margin-top:4px;">{{ city_name }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- INFO CARDS -->
+    <div class="section-header">
+        <h2 class="section-title">CITY <span>INFO</span></h2>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-card animate-up">
+            <div class="info-card-icon">🚇</div>
+            <h3>Getting Around</h3>
+            <p>{{ city.transport }}</p>
+        </div>
+        <div class="info-card animate-up">
+            <div class="info-card-icon" style="background: linear-gradient(135deg, #10b981, #059669);">🛡</div>
+            <h3>Safety Tips</h3>
+            <p>{{ city.safety }}</p>
+        </div>
+        <div class="info-card animate-up">
+            <div class="info-card-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">🍽</div>
+            <h3>Local Food</h3>
+            <p>{{ city.food }}</p>
+        </div>
+    </div>
+
+    <!-- MATCHDAY PLAN -->
+    <div class="section-header">
+        <h2 class="section-title">MATCH DAY <span>PLAN</span></h2>
+    </div>
+
+    <div class="matchday-card animate-up">
+        <div class="matchday-title">⚽ Your Match Day Roadmap</div>
+        <div class="matchday-steps">
+            <div class="matchday-step">
+                <div class="matchday-step-icon">🕒</div>
+                <div class="matchday-step-content">
+                    <h4>Leave Time</h4>
+                    <p>{{ city.leave_time }}</p>
+                </div>
+            </div>
+            <div class="matchday-step">
+                <div class="matchday-step-icon">🚕</div>
+                <div class="matchday-step-content">
+                    <h4>Travel Time to Stadium</h4>
+                    <p>{{ city.travel_time }}</p>
+                </div>
+            </div>
+            <div class="matchday-step">
+                <div class="matchday-step-icon">💡</div>
+                <div class="matchday-step-content">
+                    <h4>Local Tip</h4>
+                    <p>{{ city.tip }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MATCHES IN THIS CITY -->
+    {% if city_matches %}
+    <div class="section-header">
+        <h2 class="section-title">MATCHES <span>HERE</span></h2>
+        <a href="/matches" class="section-link">All Matches →</a>
+    </div>
+
+    <div class="city-matches-wrap animate-up">
+        {% for match in city_matches %}
+        <div class="city-match-card">
+            <div class="city-match-teams">
+                <span>{{ match.team1 }}</span>
+                <span class="city-match-vs">VS</span>
+                <span>{{ match.team2 }}</span>
+            </div>
+            <div class="city-match-info">
+                📅 {{ match.date[:10] }} &nbsp;·&nbsp; ⏰ {{ match.time }}
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button class="remind-btn">🔔 Remind Me</button>
+                <a href="/hotels" class="btn btn-primary btn-sm">🏨 Book Hotel</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- HOTELS — Travelpayouts affiliate -->
+    <div class="section-header">
+        <h2 class="section-title">STAY <span>NEARBY</span></h2>
+        <a href="/hotels" class="section-link">All Hotels →</a>
+    </div>
+
+    {% if city.hotels or hotels %}
+    <div class="hotels-grid">
+        {% for hotel in city.hotels %}
+        <div class="hotel-card animate-up">
+            <div class="hotel-img">🏨</div>
+            <div class="hotel-info">
+                <h4>{{ hotel.name }}</h4>
+                <div class="hotel-stars">★★★★☆</div>
+                <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">📍 Near {{ city.stadium }}</div>
+                <div class="hotel-footer">
+                    <div>
+                        <div class="hotel-price">{{ hotel.price }}</div>
+                        <div class="hotel-night">per night</div>
+                    </div>
+                    <a href="{{ hotel.link }}" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm">Book Now →</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% for hotel in hotels %}
+        <div class="hotel-card animate-up">
+            <div class="hotel-img">🏨</div>
+            <div class="hotel-info">
+                <h4>{{ hotel.name }}</h4>
+                <div class="hotel-stars">★★★★☆</div>
+                <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">📍 Near {{ city.stadium }}</div>
+                <div class="hotel-footer">
+                    <div>
+                        <div class="hotel-price">{{ hotel.price }}</div>
+                        <div class="hotel-night">per night</div>
+                    </div>
+                    <a href="{{ hotel.link }}" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm">Book Now →</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- BOOKING CTA — Travelpayouts Booking.com affiliate -->
+    <div class="booking-cta animate-up" style="margin-bottom:40px;">
+        <h2>🔍 MORE HOTELS IN {{ city_name | upper }}</h2>
+        <p>Compare hundreds of hotels near {{ city.stadium }} — free cancellation, best price guarantee.</p>
+        <a href="https://www.booking.com/searchresults.html?ss={{ city_name | urlencode }}&aid=YOUR_AID" target="_blank" rel="noopener sponsored" class="btn btn-lg">Compare All Hotels on Booking.com →</a>
+    </div>
+    {% else %}
+    <div class="booking-cta animate-up" style="margin-bottom:40px;">
+        <h2>🏨 FIND HOTELS IN {{ city_name | upper }}</h2>
+        <p>Search and compare the best hotels near {{ city.stadium }} for World Cup 2026.</p>
+        <a href="https://www.booking.com/searchresults.html?ss={{ city_name | urlencode }}&aid=YOUR_AID" target="_blank" rel="noopener sponsored" class="btn btn-lg">Search on Booking.com →</a>
+    </div>
+    {% endif %}
+
+    <!-- HALAL FOOD -->
+    <div class="section-header">
+        <h2 class="section-title">HALAL <span>FOOD</span></h2>
+        <span style="font-size:13px;color:var(--text-muted);font-weight:600;">🕌 Muslim-friendly restaurants</span>
+    </div>
+
+    <div class="food-grid">
+        {% for food in city.halal_food %}
+        <div class="food-card animate-up">
+            <div class="food-icon">🥙</div>
+            <div>
+                <div class="food-name">{{ food.name }}</div>
+                <div class="food-meta">{{ food.type }} · 📍 {{ food.distance }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- CITY TRAVEL ESSENTIALS — Travelpayouts affiliate -->
+    <div class="section-header">
+        <h2 class="section-title">TRAVEL <span>ESSENTIALS</span></h2>
+        <span style="font-size:13px;color:var(--text-muted);font-weight:600;">For {{ city_name }}</span>
+    </div>
+
+    <div class="essentials-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <div class="essential-card animate-up">
+            <div class="essential-banner" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">✈️</div>
+            <div class="essential-content">
+                <h3>Flights to {{ city_name }}</h3>
+                <p>Find the cheapest flights to {{ city_name }} from anywhere in the world.</p>
+                <div class="essential-footer">
+                    <div><div class="essential-price">Best Price</div></div>
+                    <a href="https://www.aviasales.com/?marker=YOUR_MARKER_ID" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm">Search Flights →</a>
+                </div>
+            </div>
+        </div>
+        <div class="essential-card animate-up">
+            <div class="essential-banner" style="background: linear-gradient(135deg, #6366f1, #0ea5e9);">📱</div>
+            <div class="essential-content">
+                <h3>Travel eSIM</h3>
+                <p>Stay connected in {{ city.country }} without roaming charges. Instant activation.</p>
+                <div class="essential-footer">
+                    <div><div class="essential-price">From $5/day</div></div>
+                    <a href="https://www.airalo.com/?referral_code=YOUR_CODE" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm">Get eSIM →</a>
+                </div>
+            </div>
+        </div>
+        <div class="essential-card animate-up">
+            <div class="essential-banner" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">🚗</div>
+            <div class="essential-content">
+                <h3>Car Rental</h3>
+                <p>Compare car rental prices near {{ city_name }} airport and stadium.</p>
+                <div class="essential-footer">
+                    <div><div class="essential-price">From $30/day</div></div>
+                    <a href="https://www.rentalcars.com/?affiliateCode=YOUR_CODE" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm">Compare →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIFA FAN ID CTA -->
+    <div class="booking-cta animate-up" style="margin:40px 0; background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+        <h2>🪪 HAVE YOUR FIFA FAN ID?</h2>
+        <p>Get your free FIFA Fan ID to unlock exclusive AR content inside {{ city.stadium }} and get chances to win free match tickets.</p>
+        <a href="/fifa-fan-id" class="btn btn-lg" style="background:white;color:#6366f1;font-weight:700;">Get Free Fan ID →</a>
+    </div>
+
+    <!-- AD -->
+    <div class="ad-box">Advertisement Space</div>
+
+</div>
+
+{% include "footer.html" %}
+
+<script>
+// Dark Mode
+const darkBtn = document.getElementById("darkBtn");
+darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    darkBtn.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+});
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkBtn.textContent = "☀️";
+}
+
+// Favorite
+const favoriteBtn = document.getElementById("favoriteBtn");
+const cityName = "{{ city_name }}";
+let favs = JSON.parse(localStorage.getItem("favoriteCities") || "[]");
+
+function updateFavBtn() {
+    if (favs.includes(cityName)) {
+        favoriteBtn.textContent = "❤️ Saved";
+        favoriteBtn.style.background = "var(--primary)";
+        favoriteBtn.style.color = "white";
+    }
+}
+updateFavBtn();
+
+favoriteBtn.addEventListener("click", function() {
+    if (favs.includes(cityName)) {
+        favs = favs.filter(c => c !== cityName);
+        favoriteBtn.textContent = "♡ Save City";
+        favoriteBtn.style.background = "";
+        favoriteBtn.style.color = "";
+    } else {
+        favs.push(cityName);
+        favoriteBtn.textContent = "❤️ Saved!";
+        favoriteBtn.style.background = "var(--primary)";
+        favoriteBtn.style.color = "white";
+    }
+    localStorage.setItem("favoriteCities", JSON.stringify(favs));
+});
+
+// Remind buttons
+document.querySelectorAll(".remind-btn").forEach(btn => {
+    btn.addEventListener("click", async function() {
+        if (!("Notification" in window)) return;
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+            new Notification("⚽ Match Reminder Set!", { body: "We'll remind you before the match in {{ city_name }}." });
+            this.textContent = "✅ Reminder Set";
+            this.style.background = "#10b981";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
