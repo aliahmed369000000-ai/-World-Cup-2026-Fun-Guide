@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="World Cup 2026 Fan Guide — Discover host cities, stadiums, hotels, halal food, weather, and match schedules for FIFA World Cup 2026.">
+    <meta property="og:title" content="World Cup 2026 Fan Guide">
+    <meta property="og:description" content="Your ultimate travel companion for FIFA World Cup 2026.">
+    <title>World Cup 2026 Fan Guide</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSYLQ42JXP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WSYLQ42JXP');
+    </script>
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.com/NTM1NTc1.js?t=535575';
+      document.head.appendChild(script);
+  })();
+</script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="nav-logo">⚽ <span>WC</span>2026</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link active">Home</a>
+            <a href="/matches" class="nav-link">Matches</a>
+            <a href="/hotels" class="nav-link">🏨 Hotels</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+        <div class="nav-actions">
+            <button id="langBtn" class="nav-btn">العربية</button>
+            <button id="darkBtn" class="nav-btn">🌙</button>
+            <button id="installBtn" class="nav-btn btn-primary" style="display:none;">📲 Install</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero animate-up">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="World Cup 2026 Logo" class="hero-logo">
+        <div class="hero-badge">🏆 FIFA World Cup 2026 — Official Fan Guide</div>
+        <h1 id="title">THE <em>WORLD</em><br>IS WATCHING</h1>
+        <p id="subtitle">Your ultimate companion for the biggest tournament on Earth. 16 cities. 48 teams. One dream.</p>
+        <div class="hero-actions">
+            <a href="/matches" class="btn btn-primary btn-lg">⚽ View Matches</a>
+            <a href="/hotels" class="btn btn-secondary btn-lg">🏨 Find Hotels</a>
+            <a href="#cities" class="btn btn-secondary btn-lg">🏙 Explore Cities</a>
+        </div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrap animate-up">
+        <div class="countdown-label">⏱ Countdown to Kickoff</div>
+        <div class="countdown-digits">
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-days">000</div>
+                <div class="countdown-unit-label">Days</div>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-hours">00</div>
+                <div class="countdown-unit-label">Hours</div>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-mins">00</div>
+                <div class="countdown-unit-label">Mins</div>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-secs">00</div>
+                <div class="countdown-unit-label">Secs</div>
+            </div>
+        </div>
+        <div class="countdown-footer">
+            <span>📅 11 June 2026</span>
+            <span>🏟 16 Host Cities</span>
+            <span>🌍 48 Teams</span>
+            <span>⚽ 104 Matches</span>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+        <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search for a host city...">
+            <div id="suggestionsBox"></div>
+        </div>
+    </div>
+
+    <!-- TODAY'S MATCHES -->
+    <div class="section-header">
+        <h2 class="section-title">TODAY'S <span>MATCHES</span></h2>
+        <a href="/matches" class="section-link">All Matches →</a>
+    </div>
+
+    <div class="matches-list">
+        {% for match in matches %}
+        <div class="match-card">
+            <div class="match-teams">
+                <div class="match-team">
+                    <div class="match-team-flag">🏳️</div>
+                    <div class="match-team-name">{{ match.team1 }}</div>
+                </div>
+                <div class="match-vs">VS</div>
+                <div class="match-team">
+                    <div class="match-team-flag">🏳️</div>
+                    <div class="match-team-name">{{ match.team2 }}</div>
+                </div>
+            </div>
+            <div class="match-meta">
+                <div class="match-time">{{ match.time }}</div>
+                <div class="match-date">📅 {{ match.date[:10] }}</div>
+                <div class="match-venue">🏟 {{ match.stadium }}</div>
+            </div>
+            <div class="match-actions">
+                <button class="remind-btn">🔔 Remind Me</button>
+                <a href="/city/{{ match.city | replace(' ','') }}" class="btn btn-secondary btn-sm">📍 City Guide</a>
+                <a href="/hotels" class="btn btn-primary btn-sm">🏨 Hotels</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="/matches" class="view-all-btn">📅 View Full Match Schedule →</a>
+
+    <!-- FAVORITES -->
+    <div class="favorites-section">
+        <h2>⭐ Your Favourite Cities</h2>
+        <div id="favoritesContainer" class="fav-chips">
+            <span style="color: var(--text-muted); font-size:14px;">No favourite cities saved yet. Tap the heart on any city page to save it here.</span>
+        </div>
+    </div>
+
+    <!-- HOST CITIES -->
+    <div class="section-header" id="cities">
+        <h2 class="section-title">HOST <span>CITIES</span></h2>
+        <span style="font-size:14px; color:var(--text-muted); font-weight:500;">16 venues across USA, Canada & Mexico</span>
+    </div>
+
+    <div class="cities-grid">
+        {% for city in cities %}
+        <a href="{{ url_for('city', name=city) }}" class="city-card">
+            <img src="{{ cities[city].image }}" alt="{{ city }}" loading="lazy">
+            <div class="overlay">
+                <div class="country-badge">{{ cities[city].country }}</div>
+                <h3>{{ city }}</h3>
+                <p>🏟 {{ cities[city].stadium }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- TRAVEL ESSENTIALS -->
+    <div class="section-header">
+        <h2 class="section-title">TRAVEL <span>ESSENTIALS</span></h2>
+    </div>
+
+    <div class="essentials-grid">
+        <div class="essential-card">
+            <div class="essential-banner" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">📱</div>
+            <div class="essential-content">
+                <h3>Travel eSIM</h3>
+                <p>Stay connected in all 3 host countries with instant mobile data. No roaming fees, instant activation.</p>
+                <div class="essential-footer">
+                    <div>
+                        <div class="essential-price">From $5</div>
+                        <div style="font-size:12px;color:var(--text-muted);">per day</div>
+                    </div>
+                    <a href="https://airalo.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Get eSIM →</a>
+                </div>
+            </div>
+        </div>
+        <div class="essential-card">
+            <div class="essential-banner" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">🔒</div>
+            <div class="essential-content">
+                <h3>Travel VPN</h3>
+                <p>Protect your privacy on public WiFi at airports, stadiums, and hotels. Watch content from home.</p>
+                <div class="essential-footer">
+                    <div>
+                        <div class="essential-price">From $3</div>
+                        <div style="font-size:12px;color:var(--text-muted);">per month</div>
+                    </div>
+                    <a href="https://surfshark.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Get VPN →</a>
+                </div>
+            </div>
+        </div>
+        <div class="essential-card">
+            <div class="essential-banner" style="background: linear-gradient(135deg, #10b981, #059669);">🏨</div>
+            <div class="essential-content">
+                <h3>Book Hotels</h3>
+                <p>Find the best hotels near World Cup stadiums. Compare prices, read reviews and book instantly.</p>
+                <div class="essential-footer">
+                    <div>
+                        <div class="essential-price">Best Deals</div>
+                        <div style="font-size:12px;color:var(--text-muted);">near stadiums</div>
+                    </div>
+                    <a href="/hotels" class="btn btn-primary btn-sm">View Hotels →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+{% include "footer.html" %}
+
+<!-- SCRIPTS -->
+<script>
+// ====== SEARCH ======
+const searchInput = document.getElementById("searchInput");
+const suggestionsBox = document.getElementById("suggestionsBox");
+const hostCities = [
+    "New York","Mexico City","Toronto","Vancouver","Los Angeles","Dallas",
+    "Miami","Atlanta","Seattle","Boston","Philadelphia","Houston",
+    "Kansas City","San Francisco Bay Area","Monterrey","Guadalajara"
+];
+
+searchInput.addEventListener("input", function() {
+    const value = this.value.toLowerCase().trim();
+    suggestionsBox.innerHTML = "";
+    if (!value) { suggestionsBox.style.display = "none"; return; }
+    const results = hostCities.filter(c => c.toLowerCase().includes(value));
+    if (!results.length) { suggestionsBox.style.display = "none"; return; }
+    results.forEach(city => {
+        const item = document.createElement("div");
+        item.className = "suggestion-item";
+        item.textContent = city;
+        item.onclick = () => { window.location.href = "/city/" + encodeURIComponent(city.replace(/ /g,'')); };
+        suggestionsBox.appendChild(item);
+    });
+    suggestionsBox.style.display = "block";
+});
+document.addEventListener("click", e => {
+    if (e.target !== searchInput && !suggestionsBox.contains(e.target)) suggestionsBox.style.display = "none";
+});
+</script>
+
+<script>
+// ====== COUNTDOWN ======
+function updateCountdown() {
+    const target = new Date("June 11, 2026 00:00:00").getTime();
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+        document.querySelector('.countdown-wrap').innerHTML = '<div style="font-family:var(--font-display);font-size:48px;color:var(--accent);letter-spacing:3px;text-align:center;padding:20px;">🎉 TOURNAMENT HAS STARTED! 🎉</div>';
+        return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(days).padStart(3,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+<script>
+// ====== DARK MODE ======
+const darkBtn = document.getElementById("darkBtn");
+darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    darkBtn.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+});
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkBtn.textContent = "☀️";
+}
+</script>
+
+<script>
+// ====== LANGUAGE TOGGLE ======
+let arabic = false;
+document.getElementById("langBtn").addEventListener("click", function() {
+    arabic = !arabic;
+    document.body.dir = arabic ? "rtl" : "ltr";
+    document.getElementById("title").innerHTML = arabic 
+        ? 'العالم <em>يشاهد</em>' 
+        : 'THE <em>WORLD</em><br>IS WATCHING';
+    document.getElementById("subtitle").textContent = arabic
+        ? 'دليلك الشامل لأكبر بطولة كروية في العالم. 16 مدينة. 48 منتخب. حلم واحد.'
+        : 'Your ultimate companion for the biggest tournament on Earth. 16 cities. 48 teams. One dream.';
+    this.textContent = arabic ? "English" : "العربية";
+});
+</script>
+
+<script>
+// ====== INSTALL PWA ======
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById("installBtn").style.display = "inline-flex";
+});
+document.getElementById("installBtn").addEventListener("click", async () => {
+    if (deferredPrompt) { deferredPrompt.prompt(); }
+});
+</script>
+
+<script>
+// ====== NOTIFICATIONS ======
+document.querySelectorAll(".remind-btn").forEach(btn => {
+    btn.addEventListener("click", async function() {
+        if (!("Notification" in window)) return;
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+            new Notification("⚽ Match Reminder Set!", { body: "We'll remind you before your World Cup match starts." });
+            this.textContent = "✅ Reminder Set";
+            this.style.background = "#10b981";
+        }
+    });
+});
+</script>
+
+<script>
+// ====== FAVORITES ======
+function loadFavorites() {
+    const container = document.getElementById("favoritesContainer");
+    const favorites = JSON.parse(localStorage.getItem("favoriteCities") || "[]");
+    if (!favorites.length) return;
+    container.innerHTML = favorites.map(city => `
+        <a href="/city/${encodeURIComponent(city)}" class="fav-chip">⭐ ${city}</a>
+    `).join("");
+}
+loadFavorites();
+</script>
+
+</body>
+</html>
