@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="World Cup 2026 Fan Guide — Discover host cities, stadiums, hotels, halal food, weather, and match schedules for FIFA World Cup 2026.">
+    <meta property="og:title" content="World Cup 2026 Fan Guide">
+    <meta property="og:description" content="Your ultimate travel companion for FIFA World Cup 2026.">
+    <title>World Cup 2026 Fan Guide</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSYLQ42JXP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WSYLQ42JXP');
+    </script>
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- EMAIL LEAD MAGNET POPUP -->
+<div id="leadMagnetOverlay" class="lm-overlay" style="display:none;">
+    <div class="lm-modal">
+        <button class="lm-close" onclick="closeLM()">✕</button>
+        <div class="lm-icon">🏆</div>
+        <h2 class="lm-title">FREE World Cup 2026<br>Fan Travel Guide (PDF)</h2>
+        <p class="lm-sub">Get our exclusive guide: best apps, stadium tips, transport hacks, eSIM & VPN recommendations — all in one free download.</p>
+        <div class="lm-features">
+            <div class="lm-feat">✅ Match schedule PDF</div>
+            <div class="lm-feat">✅ City-by-city transport guide</div>
+            <div class="lm-feat">✅ Best apps for fans</div>
+            <div class="lm-feat">✅ How to get FIFA Fan ID</div>
+        </div>
+        <div class="lm-form">
+            <input type="email" id="lmEmail" placeholder="Enter your email address" class="lm-input">
+            <button onclick="submitLM()" class="btn btn-primary lm-btn">📥 Get Free Guide</button>
+        </div>
+        <p class="lm-legal">No spam. Unsubscribe anytime. We only send World Cup updates.</p>
+    </div>
+</div>
+
+<!-- TOP EMAIL BAR -->
+<div class="email-topbar" id="emailTopbar">
+    <span>🎁 Get our FREE World Cup 2026 Fan Guide PDF — <strong>Match schedules, city tips, transport hacks!</strong></span>
+    <button onclick="openLM()" class="email-topbar-btn">Download Free →</button>
+    <button onclick="closeTopbar()" class="email-topbar-close">✕</button>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <a href="/" class="nav-logo">⚽ <span>WC</span>2026</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link active">Home</a>
+            <a href="/matches" class="nav-link">Matches</a>
+            <a href="/hotels" class="nav-link">🏨 Hotels</a>
+            <a href="/fifa-fan-id" class="nav-link">🪪 Fan ID</a>
+            <a href="/free-tickets" class="nav-link">🎟 Free Tickets</a>
+            <a href="/news" class="nav-link">📰 News</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+        <div class="nav-actions">
+            <button id="langBtn" class="nav-btn">العربية</button>
+            <button id="darkBtn" class="nav-btn">🌙</button>
+            <button id="installBtn" class="nav-btn btn-primary" style="display:none;">📲 Install</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero animate-up">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="World Cup 2026 Logo" class="hero-logo">
+        <div class="hero-badge">🏆 FIFA World Cup 2026 — Official Fan Guide</div>
+        <h1 id="title">THE <em>WORLD</em><br>IS WATCHING</h1>
+        <p id="subtitle">Your ultimate companion for the biggest tournament on Earth. 16 cities. 48 teams. One dream.</p>
+        <div class="hero-actions">
+            <button onclick="openLM()" class="btn btn-primary btn-lg">📥 Free Travel Guide</button>
+            <a href="/matches" class="btn btn-secondary btn-lg">⚽ View Matches</a>
+            <a href="#cities" class="btn btn-secondary btn-lg">🏙 Explore Cities</a>
+        </div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrap animate-up">
+        <div class="countdown-label">⏱ Countdown to Kickoff</div>
+        <div class="countdown-digits">
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-days">000</div>
+                <div class="countdown-unit-label">Days</div>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-hours">00</div>
+                <div class="countdown-unit-label">Hours</div>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-mins">00</div>
+                <div class="countdown-unit-label">Mins</div>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-number" id="cd-secs">00</div>
+                <div class="countdown-unit-label">Secs</div>
+            </div>
+        </div>
+        <div class="countdown-footer">
+            <span>📅 11 June 2026</span>
+            <span>🏟 16 Host Cities</span>
+            <span>🌍 48 Teams</span>
+            <span>⚽ 104 Matches</span>
+        </div>
+    </div>
+
+    <!-- QUICK LINKS BANNER -->
+    <div class="quick-links-bar animate-up">
+        <a href="/fifa-fan-id" class="quick-link-item">
+            <span class="quick-link-icon">🪪</span>
+            <span>FIFA Fan ID</span>
+        </a>
+        <a href="/free-tickets" class="quick-link-item">
+            <span class="quick-link-icon">🎟</span>
+            <span>Free Tickets</span>
+        </a>
+        <a href="/matches" class="quick-link-item">
+            <span class="quick-link-icon">📅</span>
+            <span>Match Schedule</span>
+        </a>
+        <a href="/hotels" class="quick-link-item">
+            <span class="quick-link-icon">🏨</span>
+            <span>Hotels</span>
+        </a>
+        <a href="/travel-essentials" class="quick-link-item">
+            <span class="quick-link-icon">✈️</span>
+            <span>Travel Essentials</span>
+        </a>
+        <a href="/news" class="quick-link-item">
+            <span class="quick-link-icon">📰</span>
+            <span>News & Updates</span>
+        </a>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+        <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search for a host city...">
+            <div id="suggestionsBox"></div>
+        </div>
+    </div>
+
+    <!-- TODAY'S MATCHES -->
+    <div class="section-header">
+        <h2 class="section-title">TODAY'S <span>MATCHES</span></h2>
+        <a href="/matches" class="section-link">All Matches →</a>
+    </div>
+
+    <div class="matches-list">
+        {% for match in matches %}
+        <div class="match-card animate-up">
+            <div class="match-teams">
+                <div class="match-team">
+                    <div class="match-team-flag" title="{{ match.team1 }}">{{ match.team1 | flag }}</div>
+                    <div class="match-team-name">{{ match.team1 }}</div>
+                </div>
+                <div class="match-vs">VS</div>
+                <div class="match-team">
+                    <div class="match-team-flag" title="{{ match.team2 }}">{{ match.team2 | flag }}</div>
+                    <div class="match-team-name">{{ match.team2 }}</div>
+                </div>
+            </div>
+            <div class="match-meta">
+                <div class="match-time">{{ match.time }}</div>
+                <div class="match-date">📅 {{ match.date[:10] }}</div>
+                <div class="match-venue">🏟 {{ match.stadium }}</div>
+            </div>
+            <div class="match-actions">
+                <button class="remind-btn">🔔 Remind Me</button>
+                <a href="/city/{{ match.city | replace(' ','') }}" class="btn btn-secondary btn-sm">⬆ City Guide</a>
+                <a href="/hotels" class="btn btn-primary btn-sm">🏨 Hotels</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="/matches" class="view-all-btn">
+        📅 View Full Match Schedule →
+    </a>
+
+    <!-- AIRALO ESIM AFFILIATE BANNER -->
+    <a href="https://airalo.pxf.io/c/7371064/1268485/15608" target="_blank" rel="noopener sponsored" class="airalo-banner animate-up">
+        <div class="airalo-banner-icon">📱</div>
+        <div class="airalo-banner-text">
+            <div class="airalo-banner-title">Travelling to the World Cup? Get your eSIM ready</div>
+            <div class="airalo-banner-sub">Stay connected in USA, Canada & Mexico from $9 — no roaming, instant activation via Airalo</div>
+        </div>
+        <div class="airalo-banner-cta">Get eSIM →</div>
+    </a>
+
+    <!-- YOUR FAVOURITES -->
+    <div class="favorites-section animate-up">
+        <h2>⭐ YOUR FAVOURITE CITIES</h2>
+        <div class="fav-chips" id="favoritesContainer">
+            <p style="color:var(--text-muted);font-size:14px;">No favourite cities saved yet. Tap the heart on any city page to save it here.</p>
+        </div>
+    </div>
+
+    <!-- HOST CITIES -->
+    <div class="section-header" id="cities">
+        <h2 class="section-title">HOST <span>CITIES</span></h2>
+        <span style="font-size:13px;color:var(--text-muted);font-weight:600;">16 venues across USA, Canada & Mexico</span>
+    </div>
+
+    <div class="cities-grid">
+        {% for name, city in cities.items() %}
+        <a href="/city/{{ name | replace(' ','') }}" class="city-card animate-up">
+            {% if city.image %}
+            <img src="{{ city.image }}" alt="{{ name }}" loading="lazy">
+            {% else %}
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#0d0d1a);display:flex;align-items:center;justify-content:center;font-size:60px;">🏙</div>
+            {% endif %}
+            <div class="overlay">
+                <h3>{{ name | upper }}</h3>
+                <p>{{ city.matches_count | default(0) }} matches · {{ city.country }}</p>
+            </div>
+            <div class="country-badge">
+                {% if city.country == 'USA' %}🇺🇸{% elif city.country == 'Canada' %}🇨🇦{% elif city.country == 'Mexico' %}🇲🇽{% endif %}
+                {{ city.country }}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- TRAVEL ESSENTIALS -->
+    <div class="section-header">
+        <h2 class="section-title">TRAVEL <span>ESSENTIALS</span></h2>
+        <a href="/travel-essentials" class="section-link">See All →</a>
+    </div>
+
+    <div class="essentials-grid">
+        <div class="essential-card animate-up">
+            <div class="essential-banner" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69);">📱</div>
+            <div class="essential-content">
+                <h3>eSIM for Travelers</h3>
+                <p>Stay connected across USA, Canada & Mexico without expensive roaming charges. Instant activation.</p>
+                <div class="essential-footer">
+                    <span class="essential-price">From $9</span>
+                    <a href="https://airalo.pxf.io/c/7371064/1268485/15608" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm">Get eSIM →</a>
+                </div>
+            </div>
+        </div>
+        <div class="essential-card animate-up">
+            <div class="essential-banner" style="background:linear-gradient(135deg,#0d2a1a,#064e3b);">🔒</div>
+            <div class="essential-content">
+                <h3>VPN for Fans</h3>
+                <p>Access your home streaming services and stay secure on stadium Wi-Fi.</p>
+                <div class="essential-footer">
+                    <span class="essential-price">From $2/mo</span>
+                    <a href="/travel-essentials" class="btn btn-primary btn-sm">View Options</a>
+                </div>
+            </div>
+        </div>
+        <div class="essential-card animate-up">
+            <div class="essential-banner" style="background:linear-gradient(135deg,#1a0a00,#7c2d12);">🧳</div>
+            <div class="essential-content">
+                <h3>FIFA Fan ID Guide</h3>
+                <p>Everything you need to enter stadiums — get your Fan ID before you travel.</p>
+                <div class="essential-footer">
+                    <span class="essential-price">Free</span>
+                    <a href="/fifa-fan-id" class="btn btn-primary btn-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEWS -->
+    <div class="section-header">
+        <h2 class="section-title">LATEST <span>UPDATES</span></h2>
+        <a href="/news" class="section-link">All News →</a>
+    </div>
+
+    <div class="news-grid">
+        <a href="/news/how-to-get-fifa-fan-id" class="news-card animate-up">
+            <div class="news-card-img" style="background:linear-gradient(135deg,#1a0a00,#e8531d);">🪪</div>
+            <div class="news-card-body">
+                <div class="news-tag">Essential</div>
+                <h3>How to Get Your FIFA Fan ID for WC 2026</h3>
+                <p>Step-by-step guide to registering for the Fan ID — mandatory for all stadium entry.</p>
+                <div class="news-meta">📅 Jun 2026</div>
+            </div>
+        </a>
+        <a href="/news/travel-cost-from-egypt" class="news-card animate-up">
+            <div class="news-card-img" style="background:linear-gradient(135deg,#0a1a00,#15803d);">✈️</div>
+            <div class="news-card-body">
+                <div class="news-tag">Travel</div>
+                <h3>How Much Does It Cost to Travel from Egypt to WC 2026?</h3>
+                <p>Complete budget breakdown including flights, hotels, tickets and daily costs.</p>
+                <div class="news-meta">📅 Jun 2026</div>
+            </div>
+        </a>
+        <a href="/news/best-translation-app-spanish" class="news-card animate-up">
+            <div class="news-card-img" style="background:linear-gradient(135deg,#0a0a1a,#4f46e5);">📱</div>
+            <div class="news-card-body">
+                <div class="news-tag">Apps</div>
+                <h3>Best Translation App for Spanish-Speaking Fans in Mexico</h3>
+                <p>Top apps to help Arabic and English fans navigate Mexico City and Monterrey.</p>
+                <div class="news-meta">📅 Jun 2026</div>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+{% include "footer.html" %}
+
+<!-- SCRIPTS -->
+<script>
+// ====== LEAD MAGNET ======
+function openLM() {
+    document.getElementById('leadMagnetOverlay').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    gtag && gtag('event', 'lead_magnet_open', {event_category: 'engagement'});
+}
+function closeLM() {
+    document.getElementById('leadMagnetOverlay').style.display = 'none';
+    document.body.style.overflow = '';
+    localStorage.setItem('lmClosed', Date.now());
+}
+function closeTopbar() {
+    document.getElementById('emailTopbar').style.display = 'none';
+    localStorage.setItem('topbarClosed', '1');
+}
+function submitLM() {
+    const email = document.getElementById('lmEmail').value.trim();
+    if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+    const emails = JSON.parse(localStorage.getItem('subscriberEmails') || '[]');
+    emails.push({email, date: new Date().toISOString()});
+    localStorage.setItem('subscriberEmails', JSON.stringify(emails));
+    document.querySelector('.lm-modal').innerHTML = `
+        <div style="text-align:center;padding:40px 20px;">
+            <div style="font-size:64px;margin-bottom:16px;">🎉</div>
+            <h2 style="font-family:var(--font-display);font-size:32px;color:var(--primary);margin-bottom:12px;">YOU'RE IN!</h2>
+            <p style="font-size:16px;color:var(--text-muted);margin-bottom:24px;">Check your email for the free guide. While you wait — explore the World Cup cities below!</p>
+            <button onclick="closeLM()" class="btn btn-primary">Explore Cities →</button>
+        </div>`;
+    gtag && gtag('event', 'lead_magnet_submit', {event_category: 'conversion'});
+}
+setTimeout(() => {
+    const lastClosed = localStorage.getItem('lmClosed');
+    if (!lastClosed || Date.now() - parseInt(lastClosed) > 86400000) openLM();
+}, 25000);
+if (localStorage.getItem('topbarClosed')) document.getElementById('emailTopbar').style.display = 'none';
+</script>
+
+<script>
+// ====== SEARCH ======
+const searchInput = document.getElementById("searchInput");
+const suggestionsBox = document.getElementById("suggestionsBox");
+const hostCities = [
+    "New York","Mexico City","Toronto","Vancouver","Los Angeles","Dallas",
+    "Miami","Atlanta","Seattle","Boston","Philadelphia","Houston",
+    "Kansas City","San Francisco Bay Area","Monterrey","Guadalajara"
+];
+searchInput.addEventListener("input", function() {
+    const value = this.value.toLowerCase().trim();
+    suggestionsBox.innerHTML = "";
+    if (!value) { suggestionsBox.style.display = "none"; return; }
+    const results = hostCities.filter(c => c.toLowerCase().includes(value));
+    if (!results.length) { suggestionsBox.style.display = "none"; return; }
+    results.forEach(city => {
+        const item = document.createElement("div");
+        item.className = "suggestion-item";
+        item.textContent = city;
+        item.onclick = () => { window.location.href = "/city/" + encodeURIComponent(city.replace(/ /g,'')); };
+        suggestionsBox.appendChild(item);
+    });
+    suggestionsBox.style.display = "block";
+});
+document.addEventListener("click", e => {
+    if (e.target !== searchInput && !suggestionsBox.contains(e.target)) suggestionsBox.style.display = "none";
+});
+</script>
+
+<script>
+// ====== COUNTDOWN ======
+function updateCountdown() {
+    const target = new Date("June 11, 2026 00:00:00").getTime();
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+        document.querySelector('.countdown-wrap').innerHTML = '<div style="font-family:var(--font-display);font-size:48px;color:var(--accent);letter-spacing:3px;text-align:center;padding:20px;">🎉 TOURNAMENT HAS STARTED! 🎉</div>';
+        return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(days).padStart(3,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+<script>
+// ====== DARK MODE ======
+const darkBtn = document.getElementById("darkBtn");
+darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    darkBtn.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+});
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkBtn.textContent = "☀️";
+}
+</script>
+
+<script>
+// ====== LANGUAGE TOGGLE ======
+let arabic = false;
+document.getElementById("langBtn").addEventListener("click", function() {
+    arabic = !arabic;
+    document.body.dir = arabic ? "rtl" : "ltr";
+    document.getElementById("title").innerHTML = arabic 
+        ? 'العالم <em>يشاهد</em>' 
+        : 'THE <em>WORLD</em><br>IS WATCHING';
+    document.getElementById("subtitle").textContent = arabic
+        ? 'دليلك الشامل لأكبر بطولة كروية في العالم. 16 مدينة. 48 منتخب. حلم واحد.'
+        : 'Your ultimate companion for the biggest tournament on Earth. 16 cities. 48 teams. One dream.';
+    this.textContent = arabic ? "English" : "العربية";
+});
+</script>
+
+<script>
+// ====== INSTALL PWA ======
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById("installBtn").style.display = "inline-flex";
+});
+document.getElementById("installBtn").addEventListener("click", async () => {
+    if (deferredPrompt) { deferredPrompt.prompt(); }
+});
+</script>
+
+<script>
+// ====== NOTIFICATIONS ======
+document.querySelectorAll(".remind-btn").forEach(btn => {
+    btn.addEventListener("click", async function() {
+        if (!("Notification" in window)) return;
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+            new Notification("⚽ Match Reminder Set!", { body: "We'll remind you before your World Cup match starts." });
+            this.textContent = "✅ Reminder Set";
+            this.style.background = "#10b981";
+            this.style.color = "white";
+            this.style.border = "none";
+        }
+    });
+});
+</script>
+
+<script>
+// ====== FAVORITES ======
+function loadFavorites() {
+    const container = document.getElementById("favoritesContainer");
+    const favorites = JSON.parse(localStorage.getItem("favoriteCities") || "[]");
+    if (!favorites.length) return;
+    container.innerHTML = favorites.map(city => `
+        <a href="/city/${encodeURIComponent(city)}" class="fav-chip">⭐ ${city}</a>
+    `).join("");
+}
+loadFavorites();
+</script>
+
+</body>
+</html>
